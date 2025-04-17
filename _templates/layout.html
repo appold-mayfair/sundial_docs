@@ -1,0 +1,15 @@
+{% extends "!layout.html" %}
+
+{% block extrahead %}
+  {{ super() }}
+  <style>
+    button[aria-label="Toggle visibility"],
+    div.rst-versions,
+    div.rst-versions.rst-badge,
+    div#version_switcher,
+    div[role="note"],
+    div.wh-breadcrumb {
+      display: none !important;
+    }
+  </style>
+{% endblock %}
