@@ -1,5 +1,5 @@
-Sundial Overview
-==================================
+Overview
+========
 
 .. toctree::
    :maxdepth: 2

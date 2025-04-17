@@ -1,4 +1,5 @@
-project = 'Sundial Documentation'
+project = 'Sundial'
+html_title = "Sundial Documentation"
 copyright = '2025'
 author = 'Sundial Team'
 
