@@ -13,3 +13,4 @@ Please use the navigation on the left to explore each section.
    :hidden:
 
    technical-spec/0-frontmatter/index
+   technical-spec/1-ledger-state/index
