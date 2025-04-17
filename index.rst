@@ -8,7 +8,7 @@ Welcome to Sundial's Documentation
    getting_started
    architecture
    integrations
-   technical-spec/index
+   technical-spec/0-frontmatter/0-meta
 
 
 Indices and tables
