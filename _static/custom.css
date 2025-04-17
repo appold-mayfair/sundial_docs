@@ -1,20 +1,13 @@
-/* 🚫 Remove the 'eye' icon next to the dark mode toggle */
-html body [class*="toggle-visibility-button"],
-html body button.toggle-visibility-button {
-  display: none !important;
+/* 🔥 Remove the "eye" icon (visibility toggle in Furo theme) */
+button[aria-label="Toggle visibility"] {
+    display: none !important;
 }
 
-/* 🚫 Hide the ReadTheDocs 'latest' version switcher */
-html body .rst-versions,
-html body #version_switcher,
-html body .wh-breadcrumb,
-html body .rst-other-versions,
-html body .rst-versions.rst-badge {
-  display: none !important;
-}
-
-/* 🧼 Remove extra space if it remains */
-html body div.rst-versions {
-  padding: 0 !important;
-  margin: 0 !important;
+/* 🔥 Remove the version switcher ("latest" dropdown in bottom corner) */
+div.rst-versions,
+div.rst-versions.rst-badge,
+div[role="note"],
+div#version_switcher,
+div.wh-breadcrumb {
+    display: none !important;
 }
