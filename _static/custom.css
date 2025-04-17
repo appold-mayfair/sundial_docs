@@ -1,0 +1,17 @@
+/* Hide the "eye" icon next to the dark mode toggle */
+.toggle-visibility-button {
+    display: none !important;
+}
+
+/* Hide the ReadTheDocs version dropdown and associated elements */
+.rst-versions,
+#version_switcher,
+.wh-breadcrumb {
+    display: none !important;
+}
+
+/* Remove padding/space where the version dropdown used to be */
+div.rst-versions {
+    padding: 0 !important;
+    margin: 0 !important;
+}
