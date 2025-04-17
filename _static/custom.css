@@ -1,17 +1,20 @@
-/* Hide the "eye" icon next to the dark mode toggle */
-.toggle-visibility-button {
-    display: none !important;
+/* 🚫 Remove the 'eye' icon next to the dark mode toggle */
+html body [class*="toggle-visibility-button"],
+html body button.toggle-visibility-button {
+  display: none !important;
 }
 
-/* Hide the ReadTheDocs version dropdown and associated elements */
-.rst-versions,
-#version_switcher,
-.wh-breadcrumb {
-    display: none !important;
+/* 🚫 Hide the ReadTheDocs 'latest' version switcher */
+html body .rst-versions,
+html body #version_switcher,
+html body .wh-breadcrumb,
+html body .rst-other-versions,
+html body .rst-versions.rst-badge {
+  display: none !important;
 }
 
-/* Remove padding/space where the version dropdown used to be */
-div.rst-versions {
-    padding: 0 !important;
-    margin: 0 !important;
+/* 🧼 Remove extra space if it remains */
+html body div.rst-versions {
+  padding: 0 !important;
+  margin: 0 !important;
 }
