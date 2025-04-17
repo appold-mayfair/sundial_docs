@@ -3,11 +3,8 @@ Overview
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: 
 
-   technical-spec/0-frontmatter/index
+   Template for ReadMe file
 
-
-* :ref:`genindex`
-* :ref:`modindex`
 * :ref:`search`
