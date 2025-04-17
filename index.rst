@@ -7,3 +7,9 @@ This site contains the technical specifications, design rationale, and supportin
 
 Please use the navigation on the left to explore each section.
 
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+   :hidden:
+
+   technical-spec/0-frontmatter/index
