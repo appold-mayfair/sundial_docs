@@ -10,4 +10,4 @@
    3-deposit-event.tex
    4-withdrawal-event.rst
    5-transaction.rst
-   4-confirmed-state.rst
+   6-confirmed-state.rst
