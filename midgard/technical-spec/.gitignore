@@ -1,0 +1,15 @@
+# Latex aux files
+**/*.pdf
+**/*.aux
+**/*.fdb_latexmk
+**/*.fls
+**/*.lof
+**/*.log
+**/*.out
+**/*.synctex.gz
+**/*.synctex(busy)
+**/*.toc
+svg-inkscape/
+gitHeadLocal.gin
+
+!images/*.pdf
