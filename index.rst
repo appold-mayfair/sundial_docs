@@ -5,9 +5,6 @@ Welcome to Sundial's Documentation
    :maxdepth: 2
    :caption: Contents:
 
-   getting_started
-   architecture
-   integrations
    technical-spec/index
 
 
