@@ -7,4 +7,3 @@ Overview
 
    Template for ReadMe file
 
-* :ref:`search`
