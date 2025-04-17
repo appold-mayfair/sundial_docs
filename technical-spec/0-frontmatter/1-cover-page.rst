@@ -1,8 +1,5 @@
-Technical Specification
+Cover Page
 =======================
-
-Midgard L2: Scaling Cardano with Optimistic Rollups
-----------------------------------------------------
 
 **Version:** (working draft)  
 **Last updated:** *[Insert Date]*

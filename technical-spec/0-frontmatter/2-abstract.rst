@@ -1,7 +1,7 @@
-Midgard Abstract
+Sundial Abstract
 ================
 
-Midgard is the first optimistic rollup protocol on Cardano.  
+Sundial is the first optimistic rollup protocol on Cardano.  
 It offloads transaction processing from Layer 1 (L1) to Layer 2 (L2) while maintaining L1’s security and decentralization properties for those transactions.  
 As a result, it can handle a significantly higher volume of transactions without compromising on security.
 
@@ -29,7 +29,8 @@ Midgard’s design aims to provide a **scalable** and **secure** solution for th
 
 ---
 
-**Contributors**
+Contributors
+----------------------------------------------------
 
 - Raul Antonio — Fluid Tokens  
 - Matteo Coppola — Fluid Tokens  
