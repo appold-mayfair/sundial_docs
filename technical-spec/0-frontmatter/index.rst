@@ -4,4 +4,4 @@
 .. toctree::
    :maxdepth: 1
 
-   0-meta
+   0-meta.rst
