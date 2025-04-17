@@ -8,6 +8,8 @@ Welcome to Sundial's Documentation
    getting_started
    architecture
    integrations
+   technical-spec/index
+
 
 Indices and tables
 ==================
