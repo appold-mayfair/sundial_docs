@@ -1,9 +1,9 @@
 Overview
 ========
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+Welcome to the Sundial documentation site.
 
-   technical-spec/0-frontmatter/index
+This site contains the technical specifications, design rationale, and supporting documents for the Midgard L2 project.
+
+Please use the navigation on the left to explore each section.
 

@@ -1,11 +1,15 @@
+# Basic project info
 project = 'Sundial'
-html_title = "Sundial Documentation"
-copyright = '2025'
 author = 'Sundial Team'
+release = '0.1'
 
-extensions = []
-templates_path = ['_templates']
-exclude_patterns = []
-
+# Theme
 html_theme = 'furo'
-html_static_path = ['_static']
+
+# Tell Sphinx what your root document is
+master_doc = 'index'
+
+# Include sidebar file
+html_sidebars = {
+    '**': ['sidebar.rst'],
+}
