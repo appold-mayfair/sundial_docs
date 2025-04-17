@@ -5,13 +5,15 @@ Meta
 
 **Cover Title:** Midgard L2: Scaling Cardano with Optimistic Rollups
 
-**Authors:**
+Authors
+----------------------------------------------------
 
 - Philip DiSarro — Anastasia Labs  
 - Jonathan Rodriguez — Anastasia Labs  
 - George Flerovsky
 
-**Contributors:**
+Contributors
+----------------------------------------------------
 
 - Raul Antonio — Fluid Tokens  
 - Matteo Coppola — Fluid Tokens  
@@ -24,7 +26,8 @@ Meta
 
 **Contact Email:** info@anastasialabs.com
 
-**PDF Metadata:**
+PDF Metadata
+----------------------------------------------------
 
 - Publisher: Anastasia Labs  
 - Subject: Cardano blockchain Layer 2 scaling  

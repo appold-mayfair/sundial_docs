@@ -9,7 +9,7 @@ Midgard L2: Scaling Cardano with Optimistic Rollups
 
 ---
 
-.. image:: ../images/midgard-logo-whitepaper-bar.pdf
+.. image:: ../images/midgard-logo-whitepaper-bar.png
    :align: center
    :width: 75%
 
