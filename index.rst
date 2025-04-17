@@ -1,4 +1,4 @@
-Welcome to Sundial's Documentation
+Sundial Overview
 ==================================
 
 .. toctree::
