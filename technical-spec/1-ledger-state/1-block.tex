@@ -7,7 +7,7 @@
 
 A block consists of a header hash, a header, and a block body:
 \begin{equation*}
-    \T{Block} := \left\{
+    \T{Block} \coloneq \left\{
     \begin{array}{ll}
         \T{header\_hash} : & \T{HeaderHash} \\
         \T{header} : & \T{Header} \\
@@ -18,7 +18,7 @@ A block consists of a header hash, a header, and a block body:
 The block body contains the block's transactions, deposits, and withdrawals, along with
 the unspent outputs that result from applying the block's transition to the previous block's unspent outputs.
 \begin{equation*}
-    \T{BlockBody} := \left\{
+    \T{BlockBody} \coloneq \left\{
     \begin{array}{ll}
         \T{utxos} : & \T{UtxoSet} \\
         \T{transactions} : & \T{TxSet} \\
@@ -106,8 +106,8 @@ A block header is a record with fixed-size fields: integers, hashes, and fixed-s
 A block header hash is 28 bytes in size and calculated via the Blake2b-224.
 \begin{equation*}
 \begin{split}
-  \T{HeaderHash} &:= \mathcal{H}_\T{Blake2b-224}(\T{Header}) \\
-  \T{Header} &:= \left\{
+  \T{HeaderHash} &\coloneq \mathcal{H}_\T{Blake2b-224}(\T{Header}) \\
+  \T{Header} &\coloneq \left\{
     \begin{array}{ll}
         \T{prev\_utxos\_root} : & \T{RootHash} \\
         \T{utxos\_root} : & \T{RootHash} \\
