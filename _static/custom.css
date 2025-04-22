@@ -1,13 +1,3 @@
-/* 🔥 Remove the "eye" icon (visibility toggle in Furo theme) */
-button[aria-label="Toggle visibility"] {
-    display: none !important;
-}
-
-/* 🔥 Remove the version switcher ("latest" dropdown in bottom corner) */
-div.rst-versions,
-div.rst-versions.rst-badge,
-div[role="note"],
-div#version_switcher,
-div.wh-breadcrumb {
+.rst-versions {
     display: none !important;
 }
