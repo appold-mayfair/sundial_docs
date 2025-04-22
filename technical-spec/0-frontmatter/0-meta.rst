@@ -1,4 +1,4 @@
-Midgard L2: Scaling Cardano with Optimistic Rollups
+Content Creators
 ====================================================
 
 Authors
@@ -19,10 +19,6 @@ Contributors
 - **Bora Oben**, Anastasia Labs
 - **Mark Petruska**, Anastasia Labs
 - **Kasey White**, Cardano Foundation
-
-.. raw:: html
-
-   <hr>
 
 Metadata
 --------

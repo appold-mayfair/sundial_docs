@@ -1,7 +1,5 @@
-Sundial Whitepaper
+Sundial Litepaper
 ==================
-
-**Working Draft – March 19th, 2025**
 
 Introduction
 ------------

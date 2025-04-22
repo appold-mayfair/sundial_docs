@@ -1,4 +1,4 @@
-Midgard L2: Overview
+Overview
 ====================================================
 
 Authors

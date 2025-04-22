@@ -1,3 +1,6 @@
+Cover Page
+=======================
+
 .. raw:: html
 
    <div style="text-align: center; margin-top: 5rem;">
@@ -10,9 +13,6 @@
 .. raw:: html
 
    <div style="margin-top: 6rem;"></div>
-
-Technical Specification
-=======================
 
 **Midgard L2: Scaling Cardano with Optimistic Rollups**
 
