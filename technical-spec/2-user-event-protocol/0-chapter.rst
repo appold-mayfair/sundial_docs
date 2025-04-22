@@ -1,5 +1,3 @@
-.. _h:user-event-protocol:
-
 User event protocol
 ===================
 

@@ -1,36 +1,34 @@
-.. _h:deposit:
-
 Deposit (L1)
 ============
 
 A user deposits funds into Midgard by submitting an L1 transaction that
 performs the following:
 
-#. Spend an input , which uniquely identifies this deposit transaction.
+1. Spend an input, which uniquely identifies this deposit transaction.
 
-#. Register a staking script credential to witness the deposit. The
-   script is parametrized by , and the credential’s purpose is to
-   disprove the existence of the deposit whenever the credential is
-   *not* registered. [1]_
+2. Register a staking script credential to witness the deposit. The
+   script is parametrized by the deposit event, and the credential’s purpose is to
+disprove the existence of the deposit whenever the credential is
+*not* registered. [1]_
 
-#. Mint a deposit auth token to verify the following datum:
+3. Mint a deposit auth token to verify the following datum:
 
    .. math::
 
-      \T{DepositDatum} \coloneq \left\{
+      \texttt{DepositDatum} := \left\{
                   \begin{array}{ll}
-                      \T{event} : & \T{DepositEvent}, \\
-                      \T{inclusion\_time} : & \T{PosixTime}, \\
-                      \T{witness} : & \T{ScriptHash}, \\
-                      \T{refund\_address}: & \T{Address}, \\
-                      \T{refund\_datum}: & \T{Option(Data)}
+                      \texttt{event} : & \texttt{DepositEvent}, \\
+                      \texttt{inclusion_time} : & \texttt{PosixTime}, \\
+                      \texttt{witness} : & \texttt{ScriptHash}, \\
+                      \texttt{refund_address} : & \texttt{Address}, \\
+                      \texttt{refund_datum} : & \texttt{Option(Data)}
                   \end{array}
                   \right\}
 
-#. Send the user’s deposited funds to the Midgard deposit address, along
+4. Send the user’s deposited funds to the Midgard deposit address, along
    with the deposit auth token and the above datum.
 
-At the time of the L1 deposit transaction, the deposit’s is set to the
+At the time of the L1 deposit transaction, the deposit’s inclusion time is set to the
 sum of the transaction’s validity interval upper bound and the Midgard
 protocol parameter. According to Midgard’s ledger rules:
 
@@ -55,14 +53,14 @@ the removed block headers.
 
 The deposit’s outcome is determined as follows:
 
--  If the deposit event is included in a settlement queue node, then the
-   deposit utxo can be absorbed into the Midgard reserves or used to pay
-   for withdrawals.
+- If the deposit event is included in a settlement queue node, then the
+  deposit utxo can be absorbed into the Midgard reserves or used to pay
+  for withdrawals.
 
--  If the deposit’s inclusion time is within the confirmed header’s
-   event interval but not within the event interval of any settlement
-   queue node, then the deposit utxo can be refunded to its user
-   according to the and fields.
+- If the deposit’s inclusion time is within the confirmed header’s
+  event interval but not within the event interval of any settlement
+  queue node, then the deposit utxo can be refunded to its user
+  according to the ``refund_address`` and ``refund_datum`` fields.
 
 The deposit’s staking credential must be deregistered when the deposit
 utxo is spent.
