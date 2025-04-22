@@ -1,4 +1,4 @@
-4-Proof Protocol
+C-Considerations
 ===========
 
 .. toctree::

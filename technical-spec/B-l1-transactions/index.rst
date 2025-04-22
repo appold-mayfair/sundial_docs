@@ -1,4 +1,4 @@
-4-Proof Protocol
+B-L1 Transactions
 ===========
 
 .. toctree::

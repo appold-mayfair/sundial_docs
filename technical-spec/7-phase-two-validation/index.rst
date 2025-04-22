@@ -1,4 +1,4 @@
-4-Proof Protocol
+7-Phase 2 Validation
 ===========
 
 .. toctree::

@@ -1,4 +1,4 @@
-4-Proof Protocol
+A-General Data Structures
 ===========
 
 .. toctree::

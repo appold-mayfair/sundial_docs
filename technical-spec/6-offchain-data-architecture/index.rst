@@ -1,4 +1,4 @@
-4-Proof Protocol
+6-Offchain Data Architecture 
 ===========
 
 .. toctree::
