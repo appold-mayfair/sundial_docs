@@ -1,4 +1,4 @@
-.. _h:block:
+.. _block:
 
 Block
 =====
@@ -7,92 +7,70 @@ A block consists of a header hash, a header, and a block body:
 
 .. math::
 
-   \begin{aligned}
-   \T{Block} \coloneq \{ & \\
-       & \T{header\_hash} : \T{HeaderHash}, \\
-       & \T{header} : \T{Header}, \\
-       & \T{block\_body} : \T{BlockBody} \\
-   \}
-   \end{aligned}
+   \texttt{Block} \coloneq \left\{ \begin{array}{ll}
+       \texttt{header\_hash} : & \texttt{HeaderHash} \\
+       \texttt{header} : & \texttt{Header} \\
+       \texttt{block\_body} : & \texttt{BlockBody}
+   \end{array} \right\}
 
 The block body contains the block's transactions, deposits, and withdrawals, along with
 the unspent outputs that result from applying the block's transition to the previous block's unspent outputs.
 
 .. math::
 
-   \begin{aligned}
-   \T{BlockBody} \coloneq \{ & \\
-       & \T{utxos} : \T{UtxoSet}, \\
-       & \T{transactions} : \T{TxSet}, \\
-       & \T{deposits} : \T{DepositSet}, \\
-       & \T{withdrawals} : \T{WithdrawalSet} \\
-   \}
-   \end{aligned}
+   \texttt{BlockBody} \coloneq \left\{ \begin{array}{ll}
+       \texttt{utxos} : & \texttt{UtxoSet} \\
+       \texttt{transactions} : & \texttt{TxSet} \\
+       \texttt{deposits} : & \texttt{DepositSet} \\
+       \texttt{withdrawals} : & \texttt{WithdrawalSet} \\
+   \end{array} \right\}
 
-The block’s ``utxos`` are derived from the previous block’s ``utxos`` by applying the block’s events.
-Withdrawals are applied before transactions, which are applied before deposits.
+.. figure:: ../images/block-transition.svg
+   :alt: Block transition diagram
+   :align: center
 
-.. note::
+   A block's transition from a previous block's utxo set to a new utxo set. Withdrawals are applied before transactions, which are applied before deposits.
 
-   A block is serialized and stored on Midgard’s data availability layer.
-   During serialization, each set in the block body is serialized as a sequence of
-   key-value pairs, sorted by the unique key of each element.
+The block is what gets serialized and stored on Midgard's data availability layer. During serialization, each of the block body's sets is serialized as a sequence of pairs, sorted in ascending order on the unique key of each element.
 
-Only the header hash and header are stored on Cardano L1.
-This is sufficient because the header specifies Merkle Patricia Trie (MPT) root hashes
-for each of the sets in the block body. These root hashes can be verified onchain by streaming
-over the corresponding set’s elements, hashing them, and calculating the root iteratively.
+However, only the header hash and header are stored on Cardano L1. This is sufficient because the header specifies Merkle Patricia Trie (MPT) root hashes for each of the sets in the block body. Each of these root hashes can be verified onchain by streaming over the corresponding set's elements, hashing them, and iteratively calculating the root hash.
 
-The MPT representation of a block’s transactions is structured as follows:
+.. figure:: ../images/block-tx-mpt.svg
+   :alt: MPT representation of block transactions
+   :align: center
 
-.. math::
+   A Merkle Patricia Trie example for a block's transactions. Each (TxId, MidgardTx) pair is hashed to a leaf, which is combined pairwise into intermediate nodes and eventually into the transactions_root hash.
 
-   (\T{TxId}_i, \T{MidgardTx}_i) \Rightarrow D_i,\quad L_i = \mathcal{H}(D_i)
-
-.. math::
-
-   N_{ij} = \mathcal{H}(L_i \Vert L_j)
-
-.. math::
-
-   \T{transactions\_root} = \mathcal{H}(N_{12} \Vert N_{34})
-
-(See the documentation figures for a graphical view.)
-
-.. _h:block-header:
+.. _block-header:
 
 Block header
-------------
+============
 
-A block header is a fixed-size record of integers, hashes, and bytestrings.
-The block header hash is 28 bytes and is computed via Blake2b-224.
-
-.. math::
-
-   \T{HeaderHash} = \mathcal{H}_\T{Blake2b-224}(\T{Header})
+A block header is a record with fixed-size fields: integers, hashes, and fixed-size bytestrings. A block header hash is 28 bytes in size and calculated via the Blake2b-224 hash:
 
 .. math::
 
-   \begin{aligned}
-   \T{Header} \coloneq \{ & \\
-       & \T{prev\_utxos\_root} : \T{RootHash}, \\
-       & \T{utxos\_root} : \T{RootHash}, \\
-       & \T{transactions\_root} : \T{RootHash}, \\
-       & \T{deposits\_root} : \T{RootHash}, \\
-       & \T{withdrawals\_root} : \T{RootHash}, \\
-       & \T{start\_time} : \T{PosixTime}, \\
-       & \T{end\_time} : \T{PosixTime}, \\
-       & \T{prev\_header\_hash} : \T{HeaderHash}, \\
-       & \T{operator\_vkey} : \T{VerificationKey}, \\
-       & \T{protocol\_version} : \T{Int} \\
-   \}
-   \end{aligned}
+   \begin{split}
+   \texttt{HeaderHash} &\coloneq \mathcal{H}_{\texttt{Blake2b-224}}(\texttt{Header}) \\
+   \texttt{Header} &\coloneq \left\{ \begin{array}{ll}
+       \texttt{prev\_utxos\_root} : & \texttt{RootHash} \\
+       \texttt{utxos\_root} : & \texttt{RootHash} \\
+       \texttt{transactions\_root} : & \texttt{RootHash} \\
+       \texttt{deposits\_root} : & \texttt{RootHash} \\
+       \texttt{withdrawals\_root} : & \texttt{RootHash} \\
+       \texttt{start\_time} : & \texttt{PosixTime} \\
+       \texttt{end\_time} : & \texttt{PosixTime} \\
+       \texttt{prev\_header\_hash} : & \texttt{HeaderHash} \\
+       \texttt{operator\_vkey} : & \texttt{VerificationKey} \\
+       \texttt{protocol\_version} : & \texttt{Int} \\
+   \end{array} \right\}
+   \end{split}
 
-**Field interpretations:**
+These header fields are interpreted as follows:
 
-- ``*_root``: MPT root hashes of block body sets.
-- ``prev_utxos_root``: Copy of previous block’s ``utxos_root``, for fraud proof verification.
-- ``start_time``, ``end_time``: Event interval bounds (see :ref:`h:time-model`).
-- ``prev_header_hash``: Blake2b-224 hash of previous block header. Zeroed for genesis block.
-- ``operator_vkey``: Signature key of the block-producing operator.
-- ``protocol_version``: Version of the Midgard protocol active at this block.
+- The ``*_root`` fields are the MPT root hashes of the corresponding sets in the block body.
+- The ``prev_utxos_root`` is a copy of the ``utxos_root`` from the previous block, included for convenience in the fraud proof verification procedures.
+- The ``start_time`` and ``end_time`` fields are the block's event interval bounds (see :ref:`time-model`).
+- The ``prev_header_hash`` is the hash of the previous block header. For the genesis block, this field is set to 28 ``0x00`` bytes.
+- The ``operator_vkey`` is the cryptographic verification key for the operator who committed the block header to the L1 state queue.
+- The ``protocol_version`` is the Midgard protocol version that applies to this block.
