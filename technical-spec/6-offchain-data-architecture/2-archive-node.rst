@@ -1,5 +1,3 @@
-.. _h:archive-node:
-
 Archive node
 ============
 

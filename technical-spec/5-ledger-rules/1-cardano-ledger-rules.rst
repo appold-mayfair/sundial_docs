@@ -1,8 +1,5 @@
-===============================
 Midgard Ledger Rules and Fraud Proofs
 ===============================
-
-.. _h:ledger-rules-fraud-proofs:
 
 In the following sections the following premises are used:
 

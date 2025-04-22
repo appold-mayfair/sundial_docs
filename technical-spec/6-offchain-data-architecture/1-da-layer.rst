@@ -1,5 +1,3 @@
-.. _h:data-availability-layer:
-
 Data availability layer
 =======================
 
@@ -14,8 +12,6 @@ decreasing preference):
 #. Cardano Leios blobs (the ideal solution)
 
 #. Multi-signature committees
-
-.. _h:data-availability-leios:
 
 Data availability via Leios blobs
 ---------------------------------
@@ -57,8 +53,6 @@ revenue they collect from Midgard transaction, deposit, and withdrawal
 fees. Furthermore, the Leios blob storage fees will become an additional
 source of revenue for Cardano L1 block producing nodes, further boosting
 the economic security of Cardano L1 on which Midgard depends.
-
-.. _h:data-availability-multisig:
 
 Data availability via Mithril
 -----------------------------

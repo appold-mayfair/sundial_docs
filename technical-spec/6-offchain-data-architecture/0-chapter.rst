@@ -1,5 +1,3 @@
-.. _h:offchain-data-architecture:
-
 Offchain data architecture
 ==========================
 
