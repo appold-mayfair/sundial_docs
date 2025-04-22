@@ -1,5 +1,3 @@
-.. _h:fraud-proof-computation-threads:
-
 Fraud proof computation threads
 ===============================
 
@@ -28,13 +26,12 @@ All steps in a computation thread parametrize the same datum type:
 
 .. math::
 
-   \T{StepDatum} (\T{state\_data}) \coloneq \left\{
+   \texttt{StepDatum}(\texttt{state_data}) := \left\{
        \begin{array}{ll}
-           \T{fraud\_prover}  : & \T{PubKeyHash} \\
-           \T{data} : & \T{state\_data}
-       \end{array} \right\}
-
-.. _h:fraud-proof-computation-threads-minting-policy:
+           \texttt{fraud_prover} : & \texttt{PubKeyHash} \\\\
+           \texttt{data} : & \texttt{state_data}
+       \end{array}
+   \right\}
 
 Minting policy
 --------------
@@ -81,8 +78,6 @@ Cancel.
    in the computation. There are no conditions because this redeemer
    relies on the spending validator to burn the token.
 
-.. _h:fraud-proof-computation-threads-spending-validators:
-
 Spending validators
 -------------------
 
@@ -110,10 +105,11 @@ transition between the input state and output state of the thread:
 .. math::
 
    \begin{aligned}
-       \T{verify\_transition} &: (\T{Input}, \T{Output}, ..\T{Args}) -> \T{Bool} \\
-       \T{verify\_transition(i, o, ..args)} &\coloneq
-           \Bigl( \T{transition(i, ..args) \equiv \T{o}} \Bigr) \\
-       \T{transition} &: (\T{Input}, ..\T{Args}) -> \T{Output}\end{aligned}
+   \texttt{verify_transition} &: (\texttt{Input}, \texttt{Output}, \ldots \texttt{Args}) \to \texttt{Bool} \\\\
+   \texttt{verify_transition(i, o, \ldots args)} &:= 
+       \Bigl( \texttt{transition(i, \ldots args)} \equiv \texttt{o} \Bigr) \\\\
+   \texttt{transition} &: (\texttt{Input}, \ldots \texttt{Args}) \to \texttt{Output}
+   \end{aligned}
 
 All of the spending validators share the same parametric redeemer type,
 but each spending validator can parametrize the Continue redeemer by a
@@ -122,9 +118,9 @@ computation step:
 
 .. math::
 
-   \T{StepRedeemer} (\T{instructions}) \coloneq
-           \T{Continue}(\T{instructions}) \;|\;
-           \T{Cancel}
+   \texttt{StepRedeemer}(\texttt{instructions}) :=
+       \texttt{Continue}(\texttt{instructions}) \;|\;
+       \texttt{Cancel}
 
 These redeemers should be handled in the following general pattern:
 

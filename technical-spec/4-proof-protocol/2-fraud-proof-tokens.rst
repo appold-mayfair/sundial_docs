@@ -1,12 +1,8 @@
-.. _h:fraud-proof-tokens:
-
 Fraud proof tokens
 ==================
 
 Fraud proof tokens represent fraud proof computations that have
 successfully concluded.
-
-.. _h:fraud-proof-tokens-minting-policy:
 
 Minting policy
 --------------
@@ -30,8 +26,6 @@ Mint.
       oracle.
 
    #. The token must be sent to the spending validator.
-
-.. _h:fraud-proof-tokens-spending-validator:
 
 Spending validator
 ------------------

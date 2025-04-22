@@ -1,5 +1,3 @@
-.. _h:fraud-proof-catalogue:
-
 Fraud proof catalogue
 =====================
 
@@ -20,13 +18,11 @@ bytes each, allowing the catalogue to track 4096 fraud proof categories.
 
 .. math::
 
-   \begin{aligned}
-       \T{FraudProofCatalogueDatum} &\coloneq \left\{
+   \texttt{FraudProofCatalogueDatum} := \left\{
        \begin{array}{ll}
-           \T{init\_step}  : & \T{ScriptHash}
-       \end{array} \right\} \\\end{aligned}
-
-.. _h:fraud-proof-catalogue-minting-policy:
+           \texttt{init_step} : & \texttt{ScriptHash}
+       \end{array}
+   \right\}
 
 Minting policy
 --------------
@@ -75,8 +71,6 @@ Remove Fraud Category.
    #. The transaction must Remove a node from the .
 
    #. The Midgard governance key must sign the transaction.
-
-.. _h:fraud-proof-catalogue-spending-validator:
 
 Spending validator
 ------------------
