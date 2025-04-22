@@ -23,4 +23,4 @@ Please use the navigation on the left to explore each section.
    technical-spec/A-general-data-structures/index
    technical-spec/B-l1-transactions/index
    technical-spec/C-considerations/index
-   Sundial Whitepaper190325
+   whitepaper.rst
