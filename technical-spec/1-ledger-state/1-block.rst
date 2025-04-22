@@ -1,5 +1,3 @@
-.. _block:
-
 Block
 =====
 
@@ -40,8 +38,6 @@ However, only the header hash and header are stored on Cardano L1. This is suffi
    :align: center
 
    A Merkle Patricia Trie example for a block's transactions. Each (TxId, MidgardTx) pair is hashed to a leaf, which is combined pairwise into intermediate nodes and eventually into the transactions_root hash.
-
-.. _block-header:
 
 Block header
 ============

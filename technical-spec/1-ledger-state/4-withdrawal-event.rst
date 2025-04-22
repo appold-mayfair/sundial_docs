@@ -1,5 +1,3 @@
-.. _h:withdrawal-event:
-
 Withdrawal event
 ================
 

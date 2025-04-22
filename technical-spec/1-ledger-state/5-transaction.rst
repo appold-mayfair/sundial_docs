@@ -1,5 +1,3 @@
-.. _h:transaction:
-
 Transaction
 ===========
 
