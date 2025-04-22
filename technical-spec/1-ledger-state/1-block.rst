@@ -40,7 +40,7 @@ However, only the header hash and header are stored on Cardano L1. This is suffi
    A Merkle Patricia Trie example for a block's transactions. Each (TxId, MidgardTx) pair is hashed to a leaf, which is combined pairwise into intermediate nodes and eventually into the transactions_root hash.
 
 Block header
-============
+------------
 
 A block header is a record with fixed-size fields: integers, hashes, and fixed-size bytestrings. A block header hash is 28 bytes in size and calculated via the Blake2b-224 hash:
 
