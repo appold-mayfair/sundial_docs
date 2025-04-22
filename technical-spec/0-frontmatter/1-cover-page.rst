@@ -21,17 +21,3 @@ Technical Specification
    .. image:: ../images/midgard-company-logos.png
       :align: center
       :width: 75%
-
-.. note::
-
-   **WORKING DRAFT**  
-   *Last updated: |today|*
-
-----
-
-If using Sphinx extensions like `sphinx_gitstamp`, you can replace `|today|` with `|git_last_commit_date|`.
-
-If you want versioning support:
-
-```rst
-.. versionadded:: 1.0
