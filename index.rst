@@ -20,4 +20,4 @@ Please use the navigation on the left to explore each section.
    technical-spec/5-ledger-rules/index
    technical-spec/6-offchain-data-architecture/index
    technical-spec/7-phase-two-validation/index
-   Sundial Whitepaper190325.pdf
+   Sundial Whitepaper190325
