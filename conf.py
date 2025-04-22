@@ -3,7 +3,9 @@ html_title = "Sundial Documentation"
 copyright = '2025'
 author = 'Sundial Team'
 
-extensions = []
+extensions = [
+    'sphinx.ext.mathjax',
+]
 templates_path = ['_templates']
 exclude_patterns = []
 

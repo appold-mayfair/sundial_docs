@@ -1,5 +1,3 @@
-.. _h:block:
-
 Block
 =====
 

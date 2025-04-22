@@ -1,5 +1,3 @@
-.. _h:ledger-state:
-
 Ledger state
 ============
 
