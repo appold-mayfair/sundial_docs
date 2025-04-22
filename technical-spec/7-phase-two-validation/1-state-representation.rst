@@ -1,5 +1,3 @@
-.. _s:phase-two-state-representation:
-
 State Representation
 ====================
 
@@ -16,7 +14,7 @@ compact state while preserving verifiability:
 .. math::
 
    \begin{aligned}
-       \text{Term} \coloneq&\;
+       \text{Term} :=&\;
            \text{Variable} (\text{Name}) \\\mid&\;
            \text{Lambda} (\text{Name}, \text{Hash}) \\\mid&\;
            \text{Apply} (\text{Hash}, \text{Hash}) \\\mid&\;
@@ -53,7 +51,7 @@ a sequence of BytesToTermSteps:
 
 .. math::
 
-   \text{BytesToTermStep} \coloneq \left\{
+   \text{BytesToTermStep} := \left\{
        \begin{array}{ll}
            \text{remaining\_bytes} : & \text{ScriptBytes} \\
            \text{partial\_term} : & \text{Term}
@@ -70,7 +68,7 @@ machine state:
 
 .. math::
 
-   \text{CEKState} \coloneq \left\{
+   \text{CEKState} := \left\{
        \begin{array}{ll}
            \text{term\_hash} : & \text{Hash} \\
            \text{env} : & \text{Environment} \\
@@ -82,7 +80,7 @@ consumed:
 
 .. math::
 
-   \text{ExecutionStep} \coloneq \left\{
+   \text{ExecutionStep} := \left\{
        \begin{array}{ll}
            \text{before\_state} : & \text{CEKState} \\
            \text{after\_state} : & \text{CEKState} \\
@@ -98,7 +96,7 @@ CEK machine evaluation. In the following, we use the notation
 
 .. math::
 
-   \text{ExecutionTrace} \coloneq \left\{
+   \text{ExecutionTrace} := \left\{
        \begin{array}{ll}
            \text{bytes\_to\_term\_steps} : & \mathcal{RH}(\text{[BytesToTermStep]}) \\
            \text{initial\_state} : & \text{CEKState} \\

@@ -1,5 +1,3 @@
-.. _h:general-onchain-data-structures-and-mechanisms:
-
 General onchain data structures and mechanisms
 ==============================================
 

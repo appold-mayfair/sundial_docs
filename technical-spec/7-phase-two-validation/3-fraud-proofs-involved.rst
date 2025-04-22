@@ -1,5 +1,3 @@
-.. _s:phase-two-fraud-proofs:
-
 Fraud Proofs in UPLC Evaluation
 ===============================
 
@@ -60,7 +58,7 @@ The fraud proof structure is minimal:
 
 .. math::
 
-   \text{FraudProof} \coloneq \left\{
+   \text{FraudProof} := \left\{
        \begin{array}{ll}
            \text{step\_number} : & \mathbb{N} \\
            \text{before\_state} : & \text{CEKState} \\

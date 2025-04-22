@@ -1,9 +1,5 @@
-.. _h:single-threaded-state-machine:
-
 Single-threaded state machine
 =============================
-
-.. _h:single-threaded-state-machine-utxo-representation:
 
 Utxo representation
 -------------------
@@ -36,8 +32,6 @@ blockchain transaction:
    to the before-state’s spending validator. If the spending validator
    defines several state transitions, the redeemer selects one for the
    transaction.
-
-.. _h:single-threaded-state-machine-minting-policy:
 
 Minting policy
 --------------
@@ -73,8 +67,6 @@ Cancel.
    thread token and (if needed) perform cleanup actions that are
    universally needed when terminating exceptionally from any state.
 
-.. _h:single-threaded-state-machine-spending-validators:
-
 Spending validators
 -------------------
 
@@ -94,12 +86,12 @@ output state:
 .. math::
 
    \begin{aligned}
-       \T{verify\_transition}_{ij} &: (\T{Input}_i, \T{Output}_j, ..\T{Args}_j) -> \T{Bool} \\
-       \T{verify\_transition}_{ij}\T{(i, o, ..args)} &\coloneq
-           \Bigl( \T{transition}_{ij}\T{(i, ..args) \equiv \T{o}} \Bigr) \\
-       \T{transition}_{ij} &: (\T{Input}_i, ..\T{Args}_j) -> \T{Output}_j\end{aligned}
+       \texttt{verify\_transition}_{ij} &: (\texttt{Input}_i, \texttt{Output}_j, \ldots \texttt{Args}_j) \to \texttt{Bool} \\\\
+       \texttt{verify\_transition}_{ij}(\texttt{i}, \texttt{o}, \ldots \texttt{args}) &:= 
+           \Bigl( \texttt{transition}_{ij}(\texttt{i}, \ldots \texttt{args}) \equiv \texttt{o} \Bigr) \\\\
+       \texttt{transition}_{ij} &: (\texttt{Input}_i, \ldots \texttt{Args}_j) \to \texttt{Output}_j
+   \end{aligned}
 
-.. _h:single-threaded-state-machine-compilation:
 
 Compilation
 -----------
@@ -124,8 +116,6 @@ reference input that indicates the addresses of the spending validators
 on which it dynamically depends. This reference input is crucial for the
 integrity of the state machine’s state graph, so secure governance
 mechanisms should control its creation/modification.
-
-.. _h:single-threaded-state-machine-example:
 
 Example
 -------

@@ -1,5 +1,3 @@
-.. _s:phase-two-decoding-off-chain:
-
 Off-chain Decoding
 ==================
 
@@ -55,7 +53,7 @@ The decoder maintains state during term construction:
 
 .. math::
 
-   \text{BytesToTermStep} \coloneq \left\{
+   \text{BytesToTermStep} := \left\{
        \begin{array}{ll}
            \text{step\_type} : & \text{DecodingStepType} \\
            \text{input\_bytes} : & \text{ScriptBytes} \\
@@ -71,7 +69,7 @@ The represents the specific transformation being performed:
 
 .. math::
 
-   \text{DecodingStepType} \coloneq \left\{
+   \text{DecodingStepType} := \left\{
        \begin{array}{ll}
            \text{VersionDecode} : & \text{(major, minor, patch)} \\
            \text{TermTagDecode} : & \text{TagBits} \\
