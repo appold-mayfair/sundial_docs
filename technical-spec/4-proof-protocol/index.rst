@@ -7,4 +7,4 @@
    0-chapter.rst
    1-fraud-proof-catalogue.rst
    2-fraud-proof-tokens.rst
-   3-computation-thread.tex
+   3-computation-thread.rst

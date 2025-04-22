@@ -7,5 +7,5 @@
    0-chapter.rst
    1-deposit.rst
    2-transaction-request.rst
-   3-transaction-order.tex
+   3-transaction-order.rst
    4-withdrawal-order.rst

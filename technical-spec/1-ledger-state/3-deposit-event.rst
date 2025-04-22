@@ -1,70 +1,58 @@
-Deposit Event
+.. _h:deposit-event:
+
+Deposit event
 =============
 
-A deposit set is a finite map from **deposit IDs** to **deposit info**:
+A deposit set is a finite map from deposit IDs to deposit info:
 
-::
+.. math::
 
-    DepositSet := Map(DepositId, DepositInfo)
-                := {
-                    (kᵢ: DepositId, vᵢ: DepositInfo) | ∀ i ≠ j: kᵢ ≠ kⱼ
-                }
+   \begin{aligned}
+       \T{DepositSet} &\coloneq \T{Map(DepositId, DepositInfo)} \\
+         &\coloneq \Bigl\{
+           (k_i: \T{DepositId}, v_i: \T{DepositInfo}) \mid \forall i \neq j.\; k_i \neq k_j
+       \Bigr\}\end{aligned}
 
----
+A deposit event in a Midgard block acknowledges that a user has created
+an L1 utxo at the Midgard L1 deposit address, intending to transfer that
+utxo’s tokens to the L2 ledger.
 
-Deposit Event Structure
-------------------------
+.. math::
 
-A deposit event in a Midgard block acknowledges that a user has created an L1 UTXO at the Midgard deposit address with the intent to transfer that value to the L2 ledger.
+   \begin{aligned}
+       \T{DepositEvent} &\coloneq (\T{DepositId}, \T{DepositInfo}) \\
+       \T{DepositId} &\coloneq \T{OutputRef} \\
+       \T{DepositInfo} &\coloneq \left\{
+           \begin{array}{ll}
+               \T{l2\_address} : & \T{Address} \\
+               \T{l2\_datum} : & \T{Option(Data)} \\
+           \end{array} \right\}\end{aligned}
 
-::
+The deposit ID corresponds to one of the inputs spent by the user in the
+L1 transaction that created the L1 deposit utxo. This identifier is
+needed to find the L1 deposit utxo, ensure that deposit events are
+unique, and detect when an operator has fabricated a deposit event
+without the corresponding deposit utxo existing in the L1 ledger.
 
-    DepositEvent := (DepositId, DepositInfo)
+Suppose a deposit event is permitted by Midgard’s ledger rules to be
+included in a block. In that case, its effect is to add a new L2 utxo to
+the block’s utxo set containing the value from the L1 deposit utxo at
+the address () and with the inline datum () specified by the user. The
+L2 output reference of this new utxo is as follows:
 
-    DepositId := OutputRef
+.. math::
 
-    DepositInfo := {
-        l2_address: Address,
-        l2_datum: Option(Data)
-    }
+   \T{l2\_outref(deposit\_id)} \coloneq \left\{
+       \begin{array}{ll}
+           \T{id} &\coloneq \T{hash(deposit\_id)} \\
+           \T{index} &\coloneq 0
+       \end{array} \right\}
 
-The **DepositId** is one of the inputs spent by the user in the L1 transaction that created the deposit UTXO.
+In other words, the L2 ledger treats the new utxo as if it was created
+by a notional transaction with equal to the hash of the deposit ID.
 
-This identifier is important for:
-- Finding the original L1 deposit UTXO
-- Ensuring deposit events are **unique**
-- Preventing fabricated deposit events that don't match real L1 transactions
-
----
-
-L2 Output Generation
----------------------
-
-If the deposit event is allowed under Midgard's ledger rules, its effect is to **add a new L2 UTXO** to the block’s UTXO set with:
-
-- **Value** from the original L1 deposit
-- **Address** as `l2_address`
-- **Datum** as `l2_datum` (inline)
-
-The L2 output reference is constructed as:
-
-::
-
-    l2_outref(deposit_id) := {
-        id:    hash(deposit_id),
-        index: 0
-    }
-
-In other words, L2 treats the new UTXO as if it were created by a **notional transaction** whose TxId is the hash of the deposit ID.
-
----
-
-Lifecycle of a Deposit
------------------------
-
-If a block containing a deposit event is **confirmed**, the related L1 UTXO may:
-
-- Be **absorbed into Midgard reserves**, or
-- Be **used to fund L2 withdrawals**
-
-Further validation rules for deposit event lifecycles are described in the `Deposit` section.
+If the block containing the deposit event is confirmed, the
+corresponding L1 deposit utxo may be absorbed into the Midgard reserves
+or used to pay for withdrawals. describes the lifecycle of a deposit in
+further detail, including how the deposit event information is
+validated.

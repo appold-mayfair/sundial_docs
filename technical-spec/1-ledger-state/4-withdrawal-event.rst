@@ -1,59 +1,51 @@
-Withdrawal Event
+.. _h:withdrawal-event:
+
+Withdrawal event
 ================
 
-A withdrawal set is a finite map from **withdrawal IDs** to **withdrawal information**:
+A withdrawal set is a finite map from withdrawal ID to withdrawal info:
 
-::
+.. math::
 
-    WithdrawalSet := Map(WithdrawalId, WithdrawalInfo)
-                   := {
-                        (kᵢ: WithdrawalId, vᵢ: WithdrawalInfo) | ∀ i ≠ j: kᵢ ≠ kⱼ
-                   }
+   \begin{aligned}
+       \T{WithdrawalSet} &\coloneq \T{Map(WithdrawalId, WithdrawalInfo)} \\
+         &\coloneq \Bigl\{
+           (k_i: \T{WithdrawalId}, v_i: \T{WithdrawalInfo}) \mid \forall i \neq j.\; k_i \neq k_j
+       \Bigr\}\end{aligned}
 
----
+A withdrawal event in a Midgard block acknowledges that a user has
+created an L1 utxo at the Midgard L1 withdrawal address, requesting the
+transfer of an L2 utxo’s tokens to the L1 ledger.
 
-Withdrawal Event Structure
---------------------------
+.. math::
 
-A **withdrawal event** in a Midgard block acknowledges that a user has created an L1 UTXO at the **Midgard withdrawal address**, requesting to transfer tokens from L2 to L1.
+   \begin{aligned}
+       \T{WithdrawalEvent} &\coloneq \T{(WithdrawalId, WithdrawalInfo)} \\
+       \T{WithdrawalId} &\coloneq \T{OutputRef} \\
+       \T{WithdrawalInfo} &\coloneq \left\{
+           \begin{array}{ll}
+               \T{l2\_outref} :& \T{OutputRef} \\
+               \T{l1\_address} : & \T{Address} \\
+               \T{l1\_datum} : & \T{Option(Data)}
+           \end{array} \right\}\end{aligned}
 
-::
+The of a withdrawal event corresponds to one of the inputs spent by the
+user in the L1 transaction that created the L1 withdrawal request utxo.
+This key is needed to identify the L1 withdrawal utxo, ensure that
+withdrawal events are unique, and detect when an operator has fabricated
+a withdrawal event without the corresponding withdrawal request existing
+in the L1 ledger.
 
-    WithdrawalEvent := (WithdrawalId, WithdrawalInfo)
+If a withdrawal event is permitted by Midgard’s ledger rules to be
+included in a block, its effect is to remove the output at
+output-reference from the block’s utxo set.
 
-    WithdrawalId := OutputRef
+Suppose the block containing the withdrawal event is confirmed. In that
+case, tokens from the Midgard reserve and confirmed deposits can be used
+to pay for the creation of an L1 utxo at the address () and with the
+inline datum () specified by the user, containing the value from the
+withdrawn L2 utxo. The L1 withdrawal request utxo must be spent in the
+transaction that pays out the withdrawal.
 
-    WithdrawalInfo := {
-        l2_outref:   OutputRef,
-        l1_address:  Address,
-        l1_datum:    Option(Data)
-    }
-
-- `WithdrawalId` corresponds to an input in the user's L1 transaction.
-- It ensures uniqueness and helps detect fabricated events by verifying that the associated L1 withdrawal UTXO truly exists.
-
----
-
-Effect of a Valid Withdrawal Event
-----------------------------------
-
-If the withdrawal event is allowed by Midgard’s ledger rules:
-
-- The **UTXO at `l2_outref` is removed** from the UTXO set.
-- This indicates that the value is no longer available on L2.
-
----
-
-When the Block is Confirmed
----------------------------
-
-Once the block containing the withdrawal event is **confirmed**:
-
-- Midgard reserves and confirmed deposits are used to **create an L1 UTXO** at:
-  - The specified `l1_address`
-  - With the inline `l1_datum`
-  - Containing the value from the withdrawn L2 UTXO
-
-The **L1 withdrawal request UTXO must be spent** in the same transaction that pays out the withdrawal.
-
-Further lifecycle rules and validation logic are discussed in the `withdrawal-order` section.
+describes the lifecycle of a withdrawal request in further detail,
+including how the withdrawal event information is validated.

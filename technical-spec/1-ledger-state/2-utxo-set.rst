@@ -1,66 +1,46 @@
-Utxo Set
+.. _h:utxo-set:
+
+Utxo set
 ========
 
-A UTXO set is a finite map from **output references** to **transaction outputs**:
+A utxo set is a finite map from output reference to transaction output:
 
-::
+.. math::
 
-    UtxoSet := Map(OutputRef, Output)
-             := {
-                (kᵢ: OutputRef, vᵢ: Output) | ∀ i ≠ j: kᵢ ≠ kⱼ
-             }
+   \begin{aligned}
+       \T{UtxoSet} &\coloneq \T{Map(OutputRef, Output)} \\
+         &\coloneq \Bigl\{
+           (k_i: \T{OutputRef}, v_i: \T{Output}) \mid \forall i \neq j.\; k_i \neq k_j
+       \Bigr\}\end{aligned}
 
----
+An output reference is a tuple that uniquely identifies an output by a
+hash of the ledger event that created it (either a transaction or a
+deposit) and its index among the outputs of that event.
 
-Output Reference
-----------------
+.. math::
 
-An **OutputRef** is a tuple that uniquely identifies an output by:
+   \T{OutputRef} \coloneq \left\{
+       \begin{array}{ll}
+           \T{id} : & \T{TxId} \\
+           \T{index} : & \T{Int}
+       \end{array} \right\}
 
-- A hash of the ledger event that created it (either a transaction or a deposit)
-- The index of the output among the outputs of that event
+An output is a tuple describing a bundle of tokens, data, and a script
+that have been placed by a transaction at an address in the ledger:
 
-::
+.. math::
 
-    OutputRef := {
-        id:     TxId,
-        index:  Int
-    }
+   \T{Output} \coloneq \left\{
+       \begin{array}{ll}
+           \T{addr} : & \T{Address} \\
+           \T{value} : & \T{Value} \\
+           \T{datum} : & \T{Option(Data)} \\
+           \T{script} : & \T{Option(Script)}
+       \end{array} \right\}
 
----
-
-Output
-------
-
-An **Output** is a tuple describing a bundle of tokens, data, and an optional script at an address:
-
-::
-
-    Output := {
-        addr:    Address,
-        value:   Value,
-        datum:   Option(Data),
-        script:  Option(Script)
-    }
-
----
-
-Usage in Midgard
------------------
-
-Within the context of a Midgard block, the UTXO set includes:
-
-- Outputs created by **deposits** and **transactions**
-- Outputs not yet spent by **transactions** or **withdrawals**
-
-It considers **all events from this block and its predecessors**, resulting in a UTXO set that is transformed into a **Merkle Patricia Trie (MPT)** and stored in the block body's `utxo` field.
-
----
-
-.. note::
-
-   Midgard requires all **L2 datums** to be inline.
-
-.. note::
-
-   Midgard uses a distinct **network ID** for L2 UTXO addresses.
+Within the context of a Midgard block, the utxo set that we are
+interested in consists of the outputs created by deposits and
+transactions but not yet spent by transactions and withdrawals,
+considering all the deposits, transactions, and withdrawals of this
+block and all its predecessors. This is the utxo set that we transform
+into an MPT and place into the block body’s field.

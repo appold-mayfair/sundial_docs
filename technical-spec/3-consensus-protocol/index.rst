@@ -7,7 +7,7 @@
    0-chapter.rst
    1-time-model.rst
    2-operator-directory.rst
-   3-scheduler.tex
+   3-scheduler.rst
    4-state-queue.rst
    5-escape-hatch.rst
    6-settlemnt-queue.rst
