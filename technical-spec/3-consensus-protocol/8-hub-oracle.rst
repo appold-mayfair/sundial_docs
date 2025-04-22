@@ -19,7 +19,7 @@ holding the hub oracle NFT and a datum of the following type:
            \texttt{fraud_proof} : & \texttt{PolicyId} \\\\
            \texttt{deposit} : & \texttt{PolicyId} \\\\
            \texttt{withdrawal} : & \texttt{PolicyId} \\\\
-           \texttt{settlement_queue} : & \texttt{PolicyId} \\\\\n
+           \texttt{settlement_queue} : & \texttt{PolicyId} \\\\
            \texttt{registered_operators_addr} : & \texttt{Address} \\\\
            \texttt{active_operators_addr} : & \texttt{Address} \\\\
            \texttt{retired_operators_addr} : & \texttt{Address} \\\\
