@@ -1,10 +1,37 @@
-| 
+.. raw:: html
 
-10
+   <div style="text-align: center; margin-top: 5rem;">
 
-| c **WORKING DRAFT**
+.. image:: ../images/midgard-logo-whitepaper-bar-1.png
+   :class: no-scaled-link
+   :align: center
+   :width: 80%
 
-|image|
+.. raw:: html
 
-.. |image| image:: images/midgard-company-logos.png
-   :width: 75.0%
+   <div style="margin-top: 6rem;"></div>
+
+Technical Specification
+=======================
+
+**Midgard L2: Scaling Cardano with Optimistic Rollups**
+
+.. only:: html
+
+   .. image:: ../images/midgard-company-logos.png
+      :align: center
+      :width: 75%
+
+.. note::
+
+   **WORKING DRAFT**  
+   *Last updated: |today|*
+
+----
+
+If using Sphinx extensions like `sphinx_gitstamp`, you can replace `|today|` with `|git_last_commit_date|`.
+
+If you want versioning support:
+
+```rst
+.. versionadded:: 1.0
