@@ -1,5 +1,3 @@
-.. _h:settlement-queue:
-
 Settlement queue
 ================
 
@@ -26,8 +24,6 @@ similar to how it is updated when committing a block to the state queue.
 Updating this timestamp ensures that the operator cannot recover their
 bond until all their resolution claims have matured in the settlement
 queue.
-
-.. _h:settlement-queue-linked-list:
 
 Linked list representation
 --------------------------
@@ -64,8 +60,6 @@ In this way, while the Midgard protocol prevents deposits from ever
 being stranded in the first place (as long as fraud proofs are promptly
 submitted), the refund mechanism ensures that they can still be
 retrieved if they occur.
-
-.. _h:settlement-queue-minting-policy:
 
 Minting policy
 --------------
@@ -126,8 +120,6 @@ Resolve Settlement Node.
 
    #. The transaction’s time-validity lower bound must match or exceed
       the of the .
-
-.. _h:settlement-queue-spending-validator:
 
 Spending validator
 ------------------

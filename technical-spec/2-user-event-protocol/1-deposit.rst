@@ -65,21 +65,6 @@ The deposit’s outcome is determined as follows:
 The deposit’s staking credential must be deregistered when the deposit
 utxo is spent.
 
-.. _h:deposit-staking-script:
-
-Staking script
---------------
-
-.. _h:deposit-minting-policy:
-
-Minting policy
---------------
-
-.. _h:deposit-spending-validator:
-
-Spending validator
-------------------
-
 .. [1]
    Cardano’s ledger lacks a more direct method to disprove the existence
    of a utxo to a Plutus script.

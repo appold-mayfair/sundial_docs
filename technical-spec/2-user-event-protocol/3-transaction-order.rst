@@ -1,5 +1,3 @@
-.. _h:transaction-order:
-
 Transaction order (L1)
 ======================
 
@@ -8,31 +6,31 @@ operator can submit an L2 transaction as an L1 transaction order. A
 transaction order is created by an L1 transaction that performs the
 following:
 
-#. Spend an input , which uniquely identifies this transaction order.
+1. Spend an input, which uniquely identifies this transaction order.
 
-#. Register a staking script credential to witness the transaction
-   order. The staking script is parametrized by , and the credential’s
+2. Register a staking script credential to witness the transaction
+   order. The staking script is parametrized by the transaction content, and the credential’s
    purpose is to disprove the existence of the transaction order
    whenever the credential is *not* registered.
 
-#. Mint a transaction order token to verify the following datum:
+3. Mint a transaction order token to verify the following datum:
 
    .. math::
 
-      \T{TxOrderDatum} \coloneq \left\{
+      \texttt{TxOrderDatum} := \left\{
                   \begin{array}{ll}
-                      \T{tx} : & \T{MidgardTx}, \\
-                      \T{inclusion\_time} : & \T{PosixTime}, \\
-                      \T{witness} : & \T{ScriptHash}, \\
-                      \T{refund\_address}: & \T{Address}, \\
-                      \T{refund\_datum}: & \T{Option(Data)}
+                      \texttt{tx} : & \texttt{MidgardTx}, \\
+                      \texttt{inclusion_time} : & \texttt{PosixTime}, \\
+                      \texttt{witness} : & \texttt{ScriptHash}, \\
+                      \texttt{refund_address} : & \texttt{Address}, \\
+                      \texttt{refund_datum} : & \texttt{Option(Data)}
                   \end{array}
                   \right\}
 
-#. Send min-ADA to the Midgard transaction order address, along with the
+4. Send min-ADA to the Midgard transaction order address, along with the
    transaction order token and the above datum.
 
-At the time of the L1 transaction order, its is set to the sum of the L1
+At the time of the L1 transaction order, its inclusion time is set to the sum of the L1
 transaction’s validity interval upper bound and the Midgard protocol
 parameter. According to Midgard’s ledger rules:
 
@@ -51,22 +49,7 @@ The transaction order fulfills its purpose when its inclusion time is
 within the confirmed header’s event interval. Whether or not the outcome
 of the order’s L2 transaction was merged into the confirmed state,
 nothing more can be achieved with the transaction order, and it can be
-refunded according to the and .
+refunded according to the ``refund_address`` and ``refund_datum`` fields.
 
 The transaction order’s staking credential must be deregistered when the
-deposit utxo is spent.
-
-.. _h:transaction-order-staking-script:
-
-Staking script
---------------
-
-.. _h:transaction-order-minting-policy:
-
-Minting policy
---------------
-
-.. _h:transaction-order-spending-validator:
-
-Spending validator
-------------------
+transaction order utxo is spent.

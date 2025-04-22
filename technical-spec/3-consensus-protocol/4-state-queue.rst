@@ -1,5 +1,3 @@
-.. _h:state-queue:
-
 State queue
 ===========
 
@@ -11,8 +9,6 @@ committing block headers to the state queue according to the rotating
 schedule enforced by the scheduler (see
 `[h:scheduler] <#h:scheduler>`__).
 
-.. _h:state-queue-utxo-representation:
-
 Utxo representation
 -------------------
 
@@ -22,16 +18,15 @@ The is implemented as a key-unordered linked list of block headers (see
 .. math::
 
    \begin{aligned}
-       \T{StateQueueDatum} &\coloneq \T{NodeDatum}(\T{Header}) \\ \\
-       \T{valid\_key}(\T{scd} : \T{StateQueueDatum}) &\coloneq
-           \Bigl( \T{scd.key} \equiv \T{Some}(\T{hash}(\T{scd.data})) \Bigr)\end{aligned}
+   \texttt{StateQueueDatum} &:= \texttt{NodeDatum}(\texttt{Header}) \\\\
+   \texttt{valid_key}(\texttt{scd} : \texttt{StateQueueDatum}) &:= 
+       \Bigl( \texttt{scd.key} \equiv \texttt{Some}(\texttt{hash}(\texttt{scd.data})) \Bigr)
+   \end{aligned}
 
-Committing a block header to the means appending a node containing the
-block header to the end of the queue. After staying there for the (a
-protocol parameter), it is merged to the confirmed state (held at the
-root node) in the first-in-first-out (FIFO) order.
-
-.. _h:state-queue-minting-policy:
+Committing a block header to the state queue means appending a node containing the
+block header to the end of the queue. After remaining in the queue for the duration
+of the confirmation delay (a Midgard protocol parameter), it is merged into the confirmed state
+(held at the root node) in first-in-first-out (FIFO) order.
 
 Minting policy
 --------------

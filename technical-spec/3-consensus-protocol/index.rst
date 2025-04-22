@@ -10,6 +10,6 @@
    3-scheduler.rst
    4-state-queue.rst
    5-escape-hatch.rst
-   6-settlemnt-queue.rst
+   6-settlement-queue.rst
    7-reserve.rst
    8-hub-oracle.rst

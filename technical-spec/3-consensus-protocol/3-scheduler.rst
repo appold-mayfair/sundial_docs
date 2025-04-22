@@ -1,5 +1,3 @@
-.. _h:scheduler:
-
 Scheduler
 =========
 
@@ -22,8 +20,6 @@ because the next operator is always selected among active operators.
 However, to minimize disruption, an operator should complete their shift
 before retiring.
 
-.. _h:scheduler-utxo-representation:
-
 Utxo representation
 -------------------
 
@@ -33,16 +29,15 @@ deinitialized via the hub oracle. That utxo’s datum type is as follows:
 
 .. math::
 
-   \T{SchedulerDatum} \coloneq \left\{
+   \texttt{SchedulerDatum} := \left\{
        \begin{array}{ll}
-           \T{operator}  : & \T{PubKeyHash} \\
-           \T{shift\_start} : & \T{PosixTime}
-       \end{array} \right\}
+           \texttt{operator} : & \texttt{PubKeyHash} \\\\
+           \texttt{shift_start} : & \texttt{PosixTime}
+       \end{array}
+   \right\}
 
-The shift’s inclusive lower bound is , and its exclusive upper bound is
-the sum of and the Midgard protocol parameter.
-
-.. _h:scheduler-minting-policy:
+The shift’s inclusive lower bound is ``shift_start``, and its exclusive upper bound is
+the sum of ``shift_start`` and the Midgard protocol parameter.
 
 Minting policy
 --------------
@@ -63,8 +58,6 @@ Deinit.
    #. The transaction must burn the Midgard hub oracle token.
 
    #. The transaction must burn the NFT.
-
-.. _h:scheduler-spending-validator:
 
 Spending validator
 ------------------

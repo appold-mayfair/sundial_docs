@@ -1,5 +1,3 @@
-.. _h:escape-hatch:
-
 Escape hatch
 ============
 

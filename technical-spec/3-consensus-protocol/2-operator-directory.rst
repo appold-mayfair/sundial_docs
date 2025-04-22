@@ -63,26 +63,23 @@ latest settlement resolution claims mature.
 .. math::
 
    \begin{aligned}
-       \T{RegisteredOperator} &\coloneq \Bigl( \T{activation\_time}: \T{PosixTime} \Bigr) \\
-       \T{ActiveOperator}     &\coloneq \Bigl( \T{bond\_unlock\_time}:
-           \T{Option}(\T{PosixTime}) \Bigr) \\
-       \T{RetiredOperator}    &\coloneq \Bigl( \T{bond\_unlock\_time}:
-           \T{Option}(\T{PosixTime}) \Bigr)\end{aligned}
+       \texttt{RegisteredOperator} &:= \Bigl( \texttt{activation_time} : \texttt{PosixTime} \Bigr) \\\\
+       \texttt{ActiveOperator}     &:= \Bigl( \texttt{bond_unlock_time} : \texttt{Option(PosixTime)} \Bigr) \\\\
+       \texttt{RetiredOperator}    &:= \Bigl( \texttt{bond_unlock_time} : \texttt{Option(PosixTime)} \Bigr)
+   \end{aligned}
 
-The above are app-specific types for the field of their respective
-lists’ . For example, the of is:
+The above are app-specific types for the ``datum`` field of their respective
+list elements. For example, the datum of a ``RegisteredOperator`` node is:
 
-.. math:: \T{RegisteredOperatorDatum} \coloneq \T{NodeDatum} (\T{RegisteredOperator})
+.. math::
 
-.. _h:registered-operators:
+   \texttt{RegisteredOperatorDatum} := \texttt{NodeDatum}(\texttt{RegisteredOperator})
 
 Registered operators
 --------------------
 
 The queue keeps track of operators after registering and before
 activating or de-registering them.
-
-.. _h:registered-operators-minting-policy:
 
 Minting policy
 ~~~~~~~~~~~~~~
@@ -220,8 +217,6 @@ Remove Duplicate Slash Bond.
    redeemer do not need to explicitly enforce that the is paid out
    because the submitter consents to the transaction.
 
-.. _h:registered-operators-spending-validator:
-
 Spending validator
 ~~~~~~~~~~~~~~~~~~
 
@@ -232,15 +227,11 @@ node field. Conditions:
 
 #. The transaction must mint or burn tokens of the minting policy.
 
-.. _h:active-operators:
-
 Active operators
 ----------------
 
 The set keeps track of operators after activating and before slashing or
 retiring them.
-
-.. _h:active-operators-minting-policy:
 
 Minting policy
 ~~~~~~~~~~~~~~
@@ -344,8 +335,6 @@ Retire Operator.
 
    #. The must match between and .
 
-.. _h:active-operators-spending-validator:
-
 Spending validator
 ~~~~~~~~~~~~~~~~~~
 
@@ -422,15 +411,11 @@ Update Bond Hold New Settlement.
          Attach Resolution Claim redeemer. The redeemer’s field must
          match the field of the .
 
-.. _h:retired-operators:
-
 Retired operators
 -----------------
 
 The set keeps track of operators after retiring and before slashing or
 returning their ADA bonds.
-
-.. _h:retired-operators-minting-policy:
 
 Minting policy
 ~~~~~~~~~~~~~~
@@ -539,8 +524,6 @@ Remove Operator Bad Settlement.
 
    The settlement queue’s onchain code is responsible for disposing of
    the operator’s ADA bond.
-
-.. _h:retired-operators-spending-validator:
 
 Spending validator
 ~~~~~~~~~~~~~~~~~~

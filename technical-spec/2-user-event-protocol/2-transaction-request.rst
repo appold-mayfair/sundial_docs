@@ -1,5 +1,3 @@
-.. _h:transaction-request:
-
 Transaction request (L2)
 ========================
 

@@ -1,5 +1,3 @@
-.. _h:time-model:
-
 Time model
 ==========
 

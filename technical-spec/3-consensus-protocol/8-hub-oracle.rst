@@ -1,5 +1,3 @@
-.. _h:midgard-hub-oracle:
-
 Midgard hub oracle
 ==================
 
@@ -10,30 +8,29 @@ holding the hub oracle NFT and a datum of the following type:
 
 .. math::
 
-   \T{HubOracleDatum} \coloneq \left\{
+   \texttt{HubOracleDatum} := \left\{
        \begin{array}{ll}
-           \T{registered\_operators} : & \T{PolicyId} \\
-           \T{active\_operators} : & \T{PolicyId} \\
-           \T{retired\_operators} : & \T{PolicyId} \\
-           \T{scheduler} : & \T{PolicyId} \\
-           \T{state\_queue} : & \T{PolicyId} \\
-           \T{fraud\_proof\_catalogue} : & \T{PolicyId} \\
-           \T{fraud\_proof} : & \T{PolicyId} \\
-           \T{deposit} : & \T{PolicyId} \\
-           \T{withdrawal} : & \T{PolicyId} \\
-           \T{settlement\_queue} : & \T{PolicyId} \\
-           \\
-           \T{registered\_operators\_addr} : & \T{Address} \\
-           \T{active\_operators\_addr} : & \T{Address} \\
-           \T{retired\_operators\_addr} : & \T{Address} \\
-           \T{scheduler\_addr} : & \T{Address} \\
-           \T{state\_queue\_addr} : & \T{Address} \\
-           \T{fraud\_proof\_catalogue\_addr} : & \T{Address} \\
-           \T{fraud\_proof\_addr} : & \T{Address} \\
-           \T{reserve\_addr} : & \T{Address}
-       \end{array} \right\}
+           \texttt{registered_operators} : & \texttt{PolicyId} \\\\
+           \texttt{active_operators} : & \texttt{PolicyId} \\\\
+           \texttt{retired_operators} : & \texttt{PolicyId} \\\\
+           \texttt{scheduler} : & \texttt{PolicyId} \\\\
+           \texttt{state_queue} : & \texttt{PolicyId} \\\\
+           \texttt{fraud_proof_catalogue} : & \texttt{PolicyId} \\\\
+           \texttt{fraud_proof} : & \texttt{PolicyId} \\\\
+           \texttt{deposit} : & \texttt{PolicyId} \\\\
+           \texttt{withdrawal} : & \texttt{PolicyId} \\\\
+           \texttt{settlement_queue} : & \texttt{PolicyId} \\\\\n
+           \texttt{registered_operators_addr} : & \texttt{Address} \\\\
+           \texttt{active_operators_addr} : & \texttt{Address} \\\\
+           \texttt{retired_operators_addr} : & \texttt{Address} \\\\
+           \texttt{scheduler_addr} : & \texttt{Address} \\\\
+           \texttt{state_queue_addr} : & \texttt{Address} \\\\
+           \texttt{fraud_proof_catalogue_addr} : & \texttt{Address} \\\\
+           \texttt{fraud_proof_addr} : & \texttt{Address} \\\\
+           \texttt{reserve_addr} : & \texttt{Address}
+       \end{array}
+   \right\}
 
-.. _h:hub-oracle-minting-policy:
 
 Minting policy
 --------------
@@ -83,8 +80,6 @@ Burn.
 
    Any other burned tokens are irrelevant, and the spending validator
    ensures that no tokens are minted.
-
-.. _h:hub-oracle-spending-validator:
 
 Spending validator
 ------------------

@@ -1,5 +1,3 @@
-.. _h:consensus-protocol:
-
 Consensus protocol
 ==================
 
