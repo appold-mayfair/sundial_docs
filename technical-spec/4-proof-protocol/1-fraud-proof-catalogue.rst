@@ -1,10 +1,10 @@
 Fraud proof catalogue
 =====================
 
-Midgard uses a key-unordered linked list (see
+Sundial uses a key-unordered linked list (see
 `[h:key-ordered-list] <#h:key-ordered-list>`__) to track all possible
-categories of fraud that can occur in Midgard blocks. Every enforced
-Midgard ledger rule (see
+categories of fraud that can occur in Sundial blocks. Every enforced
+Sundial ledger rule (see
 `[h:ledger-rules-and-fraud-proofs] <#h:ledger-rules-and-fraud-proofs>`__)
 must be represented by a fraud proof category indicating the violation
 of that rule.
@@ -28,28 +28,28 @@ Minting policy
 --------------
 
 The minting policy is statically parametrized on the minting policy and
-the Midgard governance key. [1]_ Redeemers:
+the Sundial governance key. [1]_ Redeemers:
 
 Init.
-   Initialize the via the Midgard hub oracle. Conditions:
+   Initialize the via the Sundial hub oracle. Conditions:
 
-   #. The transaction must mint the Midgard hub oracle NFT.
+   #. The transaction must mint the Sundial hub oracle NFT.
 
    #. The transaction must Init the list.
 
 Deinit.
-   Deinitialize the via the Midgard hub oracle. Conditions:
+   Deinitialize the via the Sundial hub oracle. Conditions:
 
-   #. The transaction must burn the Midgard hub oracle NFT.
+   #. The transaction must burn the Sundial hub oracle NFT.
 
    #. The transaction must Deinit the list.
 
 New Fraud Category.
-   Catalogue a new Midgard fraud category. Conditions:
+   Catalogue a new Sundial fraud category. Conditions:
 
    #. The transaction must Append a node to the . Let that node be .
 
-   #. The Midgard governance key must sign the transaction.
+   #. The Sundial governance key must sign the transaction.
 
    #. Let be the node that links to in the transaction outputs.
 
@@ -66,11 +66,11 @@ New Fraud Category.
       -  The must be larger than key by one.
 
 Remove Fraud Category.
-   Remove a Midgard fraud category. Conditions:
+   Remove a Sundial fraud category. Conditions:
 
    #. The transaction must Remove a node from the .
 
-   #. The Midgard governance key must sign the transaction.
+   #. The Sundial governance key must sign the transaction.
 
 Spending validator
 ------------------
@@ -83,5 +83,5 @@ policy. Conditions:
 #. The transaction must *not* mint or burn any other tokens.
 
 .. [1]
-   For now, Midgard governance is centralized on a pubkey. This should
+   For now, Sundial governance is centralized on a pubkey. This should
    be replaced by the proper governance mechanism when it is specified.

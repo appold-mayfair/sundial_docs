@@ -3,16 +3,16 @@
 Protocol parameters
 ===================
 
-Midgard consensus protocol parameters
+Sundial consensus protocol parameters
 -------------------------------------
 
-The following parameters must be set before Midgard is initialized.
-Their actual values will be determined once Midgard is fully
+The following parameters must be set before Sundial is initialized.
+Their actual values will be determined once Sundial is fully
 implemented, tested, and benchmarks. However, for the reader’s
 intuition, we provide approximate values that we expect for the
 parameters:
 
-.. table:: Midgard consensus protocol parameters.
+.. table:: Sundial consensus protocol parameters.
 
    ========= ==================================================
    ========================
@@ -29,58 +29,58 @@ parameters:
    ========= ==================================================
    ========================
 
-Midgard does not use the Ouroboros consensus protocol, so it does not
+Sundial does not use the Ouroboros consensus protocol, so it does not
 need to set the associated protocol parameters.
 
-.. _h:midgard-ledger-parameters:
+.. _h:Sundial-ledger-parameters:
 
-Midgard ledger parameters
+Sundial ledger parameters
 -------------------------
 
-Midgard’s L2 transactions transition its ledger similarly to Cardano’s
+Sundial’s L2 transactions transition its ledger similarly to Cardano’s
 ledger but with the exceptions defined in
 `[h:deviations-from-cardano-transaction-types] <#h:deviations-from-cardano-transaction-types>`__.
-Consequently, Midgard uses the same ledger-associated protocol
+Consequently, Sundial uses the same ledger-associated protocol
 parameters as Cardano but omits certain parameters as follows:
 
 -  No staking or governance parameters.
 
 -  No parameters for obsolete pre-Conway features.
 
-.. _h:midgard-fee-structure:
+.. _h:Sundial-fee-structure:
 
-Midgard fee structure
+Sundial fee structure
 ---------------------
 
-Midgard will collect fees from all L2 transactions, in a similar way to
-how fees are collected for Cardano L1 transactions. Furthermore, Midgard
+Sundial will collect fees from all L2 transactions, in a similar way to
+how fees are collected for Cardano L1 transactions. Furthermore, Sundial
 may collect fees for processing deposits and withdrawals, as these user
-events incur costs separate from L2 transactions. However, Midgard’s fee
+events incur costs separate from L2 transactions. However, Sundial’s fee
 parameters are expected to be orders of magnitude smaller than Cardano’s
 fee parameters.
 
-Midgard’s L1 operating costs per block are fixed, regardless of the
-number and complexity of transactions in the block. Midgard’s DA
+Sundial’s L1 operating costs per block are fixed, regardless of the
+number and complexity of transactions in the block. Sundial’s DA
 temporary storage costs per block are proportional to the number and
 size of transactions in the block, but these variable costs are orders
-of magnitude smaller than Cardano L1 storage costs. Midgard’s revenue
+of magnitude smaller than Cardano L1 storage costs. Sundial’s revenue
 per block is proportional to the number and complexity of transactions
-in the block. Therefore, on a per-block basis, Midgard’s fee revenue
+in the block. Therefore, on a per-block basis, Sundial’s fee revenue
 grows faster than its costs as the number of transactions in the block
-increases. This means that Midgard can sustain much lower L2 transaction
+increases. This means that Sundial can sustain much lower L2 transaction
 fees once it attains a certain average level of L2 activity.
 
-The specific values of Midgard’s fee parameters will be determined
+The specific values of Sundial’s fee parameters will be determined
 before launch based on simulations, benchmarks, and community feedback.
 
-.. _h:midgard-network-parameters:
+.. _h:Sundial-network-parameters:
 
-Midgard network parameters
+Sundial network parameters
 --------------------------
 
-Technically, Midgard operator nodes do not need to communicate with each
+Technically, Sundial operator nodes do not need to communicate with each
 for consensus. Instead, they participate in the consensus protocol by
-interacting with Midgard’s smart contracts on L1.
+interacting with Sundial’s smart contracts on L1.
 
 However, in practice, an offchain peer-to-peer gossip network between
 operators may help them run things a bit more smoothly for users. If so,

@@ -7,7 +7,7 @@ An escape hatch block can be added to the state queue as follows:
    their min-ADA.
 
 #. Reference compliance proof tokens verifying that the spent orders
-   fully comply with Midgard’s ledger rules.
+   fully comply with Sundial’s ledger rules.
 
 #. Append a node to the state queue with a special EscapeHatch datum.
 

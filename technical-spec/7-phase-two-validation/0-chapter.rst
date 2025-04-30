@@ -3,7 +3,7 @@
 Phase Two Validation
 ====================
 
-Phase two validation represents the critical stage in Midgard’s
+Phase two validation represents the critical stage in Sundial’s
 transaction processing where UPLC script evaluation occurs.
 
 .. _sec:phase-two-overview:
@@ -32,7 +32,7 @@ The validation process consists of three main components:
 
 Each component is designed to maintain verifiability while optimizing
 for L2 performance constraints. The following sections detail these
-components and their interactions within the Midgard protocol.
+components and their interactions within the Sundial protocol.
 
 .. _sec:validation-requirements:
 

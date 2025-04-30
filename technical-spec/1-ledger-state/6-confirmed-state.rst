@@ -1,9 +1,9 @@
 Confirmed state
 ===============
 
-When a Midgard block becomes confirmed, a selection of its block header
+When a Sundial block becomes confirmed, a selection of its block header
 fields is split into two groups (discarding the rest). These groups are
-used to populate the fields of two record types in Midgard’s confirmed
+used to populate the fields of two record types in Sundial’s confirmed
 state:
 
 .. math::
@@ -47,7 +47,7 @@ At genesis, the confirmed state is set as follows:
            \texttt{protocol_version} := & 0
        \end{array} \right\}
 
-Midgard only stores the latest confirmed block’s state on L1, always
+Sundial only stores the latest confirmed block’s state on L1, always
 overwriting the previous one. By contrast, its settlement data never
 overwrites that of the previous block. Instead, the state is spun into
 a separate settlement node that users and operators can reference to
@@ -57,7 +57,7 @@ The current operator can optimistically attach a resolution claim to any
 settlement node, indicating that all deposits and withdrawals in the
 node have been processed and that the node will be removed from the
 settlement queue at a given resolution time. The resolution time is set
-to the claim’s attachment time, shifted forward by Midgard’s protocol
+to the claim’s attachment time, shifted forward by Sundial’s protocol
 parameter, in order to provide an opportunity for fraud proofs to be
 verified on L1 that disprove the operator’s claim that the settlement
 node is resolved. The operator is slashed if their claim is disproved;

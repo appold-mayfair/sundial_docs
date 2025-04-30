@@ -1,9 +1,9 @@
-Midgard hub oracle
+Sundial hub oracle
 ==================
 
 This oracle keeps track of minting policy IDs and spending validator
 addresses for the lists used in the operator directory, state queue, and
-fraud proof set of the Midgard protocol. It consists of a single utxo
+fraud proof set of the Sundial protocol. It consists of a single utxo
 holding the hub oracle NFT and a datum of the following type:
 
 .. math::
@@ -35,12 +35,12 @@ holding the hub oracle NFT and a datum of the following type:
 Minting policy
 --------------
 
-The minting policy ensures that all Midgard lists are initialized
+The minting policy ensures that all Sundial lists are initialized
 together, sent to their respective spending validator addresses, and
 deinitialized together. Redeemers:
 
 Init.
-   Initialize all Midgard lists and send their root nodes to their
+   Initialize all Sundial lists and send their root nodes to their
    respective validator addresses. Conditions:
 
    #. Let be a static parameter of the minting policy.
@@ -63,10 +63,10 @@ Init.
    #. No other tokens must be minted or burned.
 
    The nonce utxo proves authority for initialization — whoever controls
-   it is authorized to initialize the Midgard L1 data structures.
+   it is authorized to initialize the Sundial L1 data structures.
 
 Burn.
-   Deinitialize all Midgard lists and burn the hub oracle NFT.
+   Deinitialize all Sundial lists and burn the hub oracle NFT.
    Conditions:
 
    #. The transaction must burn the hub oracle NFT.

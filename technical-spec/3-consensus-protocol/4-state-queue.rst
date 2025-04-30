@@ -1,7 +1,7 @@
 State queue
 ===========
 
-The state queue is an L1 data structure that stores Midgard operators’
+The state queue is an L1 data structure that stores Sundial operators’
 committed block headers until they are confirmed. Active operators from
 the operator directory (see
 `[h:operator-directory] <#h:operator-directory>`__) take turns
@@ -25,7 +25,7 @@ The is implemented as a key-unordered linked list of block headers (see
 
 Committing a block header to the state queue means appending a node containing the
 block header to the end of the queue. After remaining in the queue for the duration
-of the confirmation delay (a Midgard protocol parameter), it is merged into the confirmed state
+of the confirmation delay (a Sundial protocol parameter), it is merged into the confirmed state
 (held at the root node) in first-in-first-out (FIFO) order.
 
 Minting policy
@@ -36,16 +36,16 @@ It is statically parametrized on the , , , , and minting policies.
 Redeemers:
 
 Init.
-   Initialize the via the Midgard hub oracle. Conditions:
+   Initialize the via the Sundial hub oracle. Conditions:
 
-   #. The transaction must mint the Midgard hub oracle token.
+   #. The transaction must mint the Sundial hub oracle token.
 
    #. The transaction must Init the .
 
 Deinit.
-   Deinitialize the via the Midgard hub oracle. Conditions:
+   Deinitialize the via the Sundial hub oracle. Conditions:
 
-   #. The transaction must burn the Midgard hub oracle token.
+   #. The transaction must burn the Sundial hub oracle token.
 
    #. The transaction must Deinit the .
 
@@ -103,7 +103,7 @@ Merge To Confirmed State.
    #. and must both be root nodes of .
 
    #. must be mature — the lower bound of the transaction validity
-      interval meets or exceeds the sum of the field of and the Midgard
+      interval meets or exceeds the sum of the field of and the Sundial
       protocol parameter.
 
    #. must match:

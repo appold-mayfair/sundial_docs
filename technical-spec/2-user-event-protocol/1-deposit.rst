@@ -1,7 +1,7 @@
 Deposit (L1)
 ============
 
-A user deposits funds into Midgard by submitting an L1 transaction that
+A user deposits funds into Sundial by submitting an L1 transaction that
 performs the following:
 
 1. Spend an input, which uniquely identifies this deposit transaction.
@@ -25,12 +25,12 @@ disprove the existence of the deposit whenever the credential is
                   \end{array}
                   \right\}
 
-4. Send the user’s deposited funds to the Midgard deposit address, along
+4. Send the user’s deposited funds to the Sundial deposit address, along
    with the deposit auth token and the above datum.
 
 At the time of the L1 deposit transaction, the deposit’s inclusion time is set to the
-sum of the transaction’s validity interval upper bound and the Midgard
-protocol parameter. According to Midgard’s ledger rules:
+sum of the transaction’s validity interval upper bound and the Sundial
+protocol parameter. According to Sundial’s ledger rules:
 
 Deposit inclusion.
    A block header must include deposit events with inclusion times
@@ -47,14 +47,14 @@ a block header in the state queue has violated the deposit inclusion
 rule. When this block header and all its descendants are removed, the
 state queue enforces that the next committed block header’s event
 interval must contain all of those removed block headers’ event
-intervals. Therefore, Midgard’s ledger rules require this new block
+intervals. Therefore, Sundial’s ledger rules require this new block
 header to include all deposit events that should have been included in
 the removed block headers.
 
 The deposit’s outcome is determined as follows:
 
 - If the deposit event is included in a settlement queue node, then the
-  deposit utxo can be absorbed into the Midgard reserves or used to pay
+  deposit utxo can be absorbed into the Sundial reserves or used to pay
   for withdrawals.
 
 - If the deposit’s inclusion time is within the confirmed header’s

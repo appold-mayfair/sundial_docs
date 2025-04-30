@@ -107,7 +107,7 @@ The execution trace is stored in transaction witness sets:
 
 .. math::
 
-   \text{MidgardTxWits} \coloneq \left\{
+   \text{SundialTxWits} \coloneq \left\{
        \begin{array}{ll}
            ... \\
            \text{execution\_traces} : & \quad?\;\mathcal{RH}(\text{Map(RdmrPtr, ExecutionTrace)})

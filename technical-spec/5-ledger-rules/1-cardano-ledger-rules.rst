@@ -1,4 +1,4 @@
-Midgard Ledger Rules and Fraud Proofs
+Sundial Ledger Rules and Fraud Proofs
 ===============================
 
 In the following sections the following premises are used:

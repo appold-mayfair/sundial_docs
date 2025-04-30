@@ -14,7 +14,7 @@ Cover Page
 
    <div style="margin-top: 6rem;"></div>
 
-**Midgard L2: Scaling Cardano with Optimistic Rollups**
+**Sundial L2: Scaling Cardano with Optimistic Rollups**
 
 .. only:: html
 

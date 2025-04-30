@@ -44,10 +44,10 @@ Init.
 
    #. The transaction must reference a node of the . Let that node be .
 
-   #. The transaction must include the Midgard hub oracle NFT in a
+   #. The transaction must include the Sundial hub oracle NFT in a
       reference input.
 
-   #. Let be the policy ID in the corresponding field of the Midgard hub
+   #. Let be the policy ID in the corresponding field of the Sundial hub
       oracle.
 
    #. The transaction must reference a node from the . Let be that node.

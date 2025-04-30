@@ -1,7 +1,7 @@
 Data availability layer
 =======================
 
-The data availability layer is critical to Midgard’s security because
+The data availability layer is critical to Sundial’s security because
 every committed block needs to be publicly available throughout the
 maturity period so that watchers can detect and prove fraud before
 invalid blocks are merged.
@@ -16,7 +16,7 @@ decreasing preference):
 Data availability via Leios blobs
 ---------------------------------
 
-The ideal data availability solution for Midgard is based on Cardano
+The ideal data availability solution for Sundial is based on Cardano
 Leios blobs, which are a proposed feature in Cardano that will support
 large-scale transient data storage secured via L1 consensus.
 
@@ -29,18 +29,18 @@ is stored permanently).
 
 Leios blobs are a natural intermediate point on Leios’ multi-year
 roadmap toward full input-endorser capabilities. We believe that they
-are achievable before Midgard’s planned deployment on mainnet, and we
+are achievable before Sundial’s planned deployment on mainnet, and we
 will support the Leios team to help bring them to Cardano sooner.
 
-In the Leios-based data availability solution for Midgard, operators
+In the Leios-based data availability solution for Sundial, operators
 will pay to store their full non-Merkelized blocks inside Leios blobs
 for the full maturity period. Leios itself will provide timestamps and
 (non-Merkle) hashes for the blobs and ensure that the blob contents are
-accessible. Midgard’s L1 smart contracts will be able to access the
+accessible. Sundial’s L1 smart contracts will be able to access the
 timestamps and non-Merkle hashes of blobs directly.
 
 The block data inside each Leios blob will be sufficient to be converted
-offchain into the Merkelized representation of Midgard blocks that is
+offchain into the Merkelized representation of Sundial blocks that is
 necessary to construct fraud proofs. The correspondence between the
 non-Merkelized block data stored in the Leios blob and the Merkle root
 hash declared in the block header will be verifiable via a special fraud
@@ -49,15 +49,15 @@ root hash in a streaming fashion over the block data and compare it to
 the declared Merkle root hash in the block header.
 
 Operators’ costs for storing blocks in Leios will be offset by the
-revenue they collect from Midgard transaction, deposit, and withdrawal
+revenue they collect from Sundial transaction, deposit, and withdrawal
 fees. Furthermore, the Leios blob storage fees will become an additional
 source of revenue for Cardano L1 block producing nodes, further boosting
-the economic security of Cardano L1 on which Midgard depends.
+the economic security of Cardano L1 on which Sundial depends.
 
 Data availability via Mithril
 -----------------------------
 
-If Leios blobs are unavailable on Cardano mainnet in time for Midgard’s
+If Leios blobs are unavailable on Cardano mainnet in time for Sundial’s
 deployment, a viable alternative is using stake-weighted Mithril
 certificates to ensure data availability.
 
@@ -75,7 +75,7 @@ of Mithril participants. This certificate represents the Mithril
 participants’ collective claim that the necessary block data is publicly
 available.
 
-Midgard’s L1 consensus protocol is adapted as follows:
+Sundial’s L1 consensus protocol is adapted as follows:
 
 #. **Publishing Data:** When the current operator wishes to commit a new
    block header to the state queue, they must publish the block’s full
@@ -96,20 +96,20 @@ Midgard’s L1 consensus protocol is adapted as follows:
    conditions, the Mithril participant signs the Mithril certificate and
    broadcasts the signature to the Mithril aggregators.
 
-#. **Onchain Verification:** The Midgard state queue requires every new
+#. **Onchain Verification:** The Sundial state queue requires every new
    block header to be appended with an associated Mithril certificate
-   signed by Midgard’s quorum for the Mithril-based DA. Midgard’s
+   signed by Sundial’s quorum for the Mithril-based DA. Sundial’s
    parameter sets this quorum threshold.
 
-By leveraging Mithril, Midgard ensures that state commitments are only
+By leveraging Mithril, Sundial ensures that state commitments are only
 accepted when their corresponding block data is provably available. This
-mechanism safeguards Midgard against data-availability fraud, where a
+mechanism safeguards Sundial against data-availability fraud, where a
 malicious operator attempts to submit a state commitment without
 disclosing the underlying data. Without access to this data, fraud
 provers would be unable to construct and submit fraud proofs, allowing
 the fraudulent state commitment to become canonical once the fraud
 detection window closes. By requiring a Mithril certificate before a
-state commitment is appended, Midgard guarantees that the data remains
+state commitment is appended, Sundial guarantees that the data remains
 accessible, preserving the system’s integrity.
 
 A key difference between the Leios blob and Mithril-based data

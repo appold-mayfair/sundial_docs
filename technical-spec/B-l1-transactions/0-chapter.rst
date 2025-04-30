@@ -1,9 +1,9 @@
-.. _h:midgard-l1-transactions:
+.. _h:Sundial-l1-transactions:
 
-Midgard L1 transactions
+Sundial L1 transactions
 =======================
 
-This chapter specifies the L1 transactions that interact with Midgard’s
+This chapter specifies the L1 transactions that interact with Sundial’s
 consensus protocol smart contracts. Whereas the onchain smart contract
 are specified in a modular way, where each validator is only concerned
 with its own validity conditions, the transactions specified in this

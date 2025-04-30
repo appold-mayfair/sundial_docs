@@ -19,7 +19,7 @@ following:
 
       \texttt{TxOrderDatum} := \left\{
                   \begin{array}{ll}
-                      \texttt{tx} : & \texttt{MidgardTx}, \\
+                      \texttt{tx} : & \texttt{SundialTx}, \\
                       \texttt{inclusion_time} : & \texttt{PosixTime}, \\
                       \texttt{witness} : & \texttt{ScriptHash}, \\
                       \texttt{refund_address} : & \texttt{Address}, \\
@@ -27,12 +27,12 @@ following:
                   \end{array}
                   \right\}
 
-4. Send min-ADA to the Midgard transaction order address, along with the
+4. Send min-ADA to the Sundial transaction order address, along with the
    transaction order token and the above datum.
 
 At the time of the L1 transaction order, its inclusion time is set to the sum of the L1
-transaction’s validity interval upper bound and the Midgard protocol
-parameter. According to Midgard’s ledger rules:
+transaction’s validity interval upper bound and the Sundial protocol
+parameter. According to Sundial’s ledger rules:
 
 Transaction order inclusion.
    A block header must include transaction orders with inclusion times

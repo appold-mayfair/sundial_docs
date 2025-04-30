@@ -29,7 +29,7 @@ the unspent outputs that result from applying the block's transition to the prev
 
    A block's transition from a previous block's utxo set to a new utxo set. Withdrawals are applied before transactions, which are applied before deposits.
 
-The block is what gets serialized and stored on Midgard's data availability layer. During serialization, each of the block body's sets is serialized as a sequence of pairs, sorted in ascending order on the unique key of each element.
+The block is what gets serialized and stored on Sundial's data availability layer. During serialization, each of the block body's sets is serialized as a sequence of pairs, sorted in ascending order on the unique key of each element.
 
 However, only the header hash and header are stored on Cardano L1. This is sufficient because the header specifies Merkle Patricia Trie (MPT) root hashes for each of the sets in the block body. Each of these root hashes can be verified onchain by streaming over the corresponding set's elements, hashing them, and iteratively calculating the root hash.
 
@@ -37,7 +37,7 @@ However, only the header hash and header are stored on Cardano L1. This is suffi
    :alt: MPT representation of block transactions
    :align: center
 
-   A Merkle Patricia Trie example for a block's transactions. Each (TxId, MidgardTx) pair is hashed to a leaf, which is combined pairwise into intermediate nodes and eventually into the transactions_root hash.
+   A Merkle Patricia Trie example for a block's transactions. Each (TxId, SundialTx) pair is hashed to a leaf, which is combined pairwise into intermediate nodes and eventually into the transactions_root hash.
 
 Block header
 ------------
@@ -69,4 +69,4 @@ These header fields are interpreted as follows:
 - The ``start_time`` and ``end_time`` fields are the block's event interval bounds (see :ref:`time-model`).
 - The ``prev_header_hash`` is the hash of the previous block header. For the genesis block, this field is set to 28 ``0x00`` bytes.
 - The ``operator_vkey`` is the cryptographic verification key for the operator who committed the block header to the L1 state queue.
-- The ``protocol_version`` is the Midgard protocol version that applies to this block.
+- The ``protocol_version`` is the Sundial protocol version that applies to this block.

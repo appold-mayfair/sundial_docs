@@ -13,6 +13,9 @@ blockchain ledger as a single utxo:
 -  The utxo value contains a thread token corresponding to the state
    machine.
 
+
+   
+
 -  The datum contains the output that the machine emitted upon entering
    the current state.
 

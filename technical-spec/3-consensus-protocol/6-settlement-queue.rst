@@ -38,7 +38,7 @@ For example, suppose an operator block fraudulently excludes an L1
 deposit, but no fraud prover removes the block before its confirmation.
 In that case, the deposit cannot be included in any subsequent block or
 spent into the reserves. Without the refund mechanism based on proof of
-stranding, the deposit would stay stranded forever at Midgard’s deposit
+stranding, the deposit would stay stranded forever at Sundial’s deposit
 address.
 
 An L1 event is stranded (and can therefore be refunded) if it satisfies
@@ -56,7 +56,7 @@ all of the following conditions:
       settlement node. However, the event is *not* in the corresponding
       deposit or withdrawal tree in the settlement node.
 
-In this way, while the Midgard protocol prevents deposits from ever
+In this way, while the Sundial protocol prevents deposits from ever
 being stranded in the first place (as long as fraud proofs are promptly
 submitted), the refund mechanism ensures that they can still be
 retrieved if they occur.
@@ -69,16 +69,16 @@ It’s responsible for appends to the list’s end, and also removal of
 nodes anywhere in the list.
 
 Init.
-   Initialize the via the Midgard hub oracle. Conditions:
+   Initialize the via the Sundial hub oracle. Conditions:
 
-   #. The transaction must mint the Midgard hub oracle NFT.
+   #. The transaction must mint the Sundial hub oracle NFT.
 
    #. The transaction must Init the list.
 
 Deinit.
-   Deinitialize the via the Midgard hub oracle. Conditions:
+   Deinitialize the via the Sundial hub oracle. Conditions:
 
-   #. The transaction must burn the Midgard hub oracle NFT.
+   #. The transaction must burn the Sundial hub oracle NFT.
 
    #. The transaction must Deinit the list.
 
@@ -86,10 +86,10 @@ Append Settlement Node.
    Append a settlement node to store a merged block’s deposits and
    withdrawals. Conditions:
 
-   #. The transaction must include the Midgard hub oracle NFT in a
+   #. The transaction must include the Sundial hub oracle NFT in a
       reference input.
 
-   #. Let be the policy ID in the corresponding field of the Midgard hub
+   #. Let be the policy ID in the corresponding field of the Sundial hub
       oracle.
 
    #. The transaction must Remove a node via the Merge To Confirmed
@@ -144,10 +144,10 @@ Attach Resolution Claim.
 
    #. The transaction must be signed by the resolution claim’s operator.
 
-   #. The transaction must include the Midgard hub oracle NFT in a
+   #. The transaction must include the Sundial hub oracle NFT in a
       reference input.
 
-   #. Let and be the corresponding policy IDs in the Midgard hub oracle.
+   #. Let and be the corresponding policy IDs in the Sundial hub oracle.
 
    #. The transaction must include an input (), spent via the Update
       Bond Hold New Settlement redeemer, of an node with a key matching
@@ -169,10 +169,10 @@ Disprove Resolution Claim.
    #. The spent input must be reproduced as a settlement node without a
       resolution claim.
 
-   #. The transaction must include the Midgard hub oracle NFT in a
+   #. The transaction must include the Sundial hub oracle NFT in a
       reference input.
 
-   #. Let , , and be the corresponding policy IDs in the Midgard hub
+   #. Let , , and be the corresponding policy IDs in the Sundial hub
       oracle.
 
    #. The transaction must include either a deposit or a withdrawal

@@ -35,7 +35,7 @@ that have been placed by a transaction at an address in the ledger:
        \end{array}
    \right\}
 
-Within the context of a Midgard block, the utxo set that we are
+Within the context of a Sundial block, the utxo set that we are
 interested in consists of the outputs created by deposits and
 transactions but not yet spent by transactions and withdrawals,
 considering all the deposits, transactions, and withdrawals of this

@@ -8,8 +8,8 @@ A withdrawal set is a finite map from withdrawal ID to withdrawal info:
    \texttt{WithdrawalSet} := \texttt{Map(WithdrawalId, WithdrawalInfo)} \\
    := \left\{ (k_i: \texttt{WithdrawalId}, v_i: \texttt{WithdrawalInfo}) \;\middle|\; \forall i \ne j.\; k_i \ne k_j \right\}
 
-A withdrawal event in a Midgard block acknowledges that a user has
-created an L1 utxo at the Midgard L1 withdrawal address, requesting the
+A withdrawal event in a Sundial block acknowledges that a user has
+created an L1 utxo at the Sundial L1 withdrawal address, requesting the
 transfer of an L2 utxo’s tokens to the L1 ledger.
 
 .. math::
@@ -33,12 +33,12 @@ withdrawal events are unique, and detect when an operator has fabricated
 a withdrawal event without the corresponding withdrawal request existing
 in the L1 ledger.
 
-If a withdrawal event is permitted by Midgard’s ledger rules to be
+If a withdrawal event is permitted by Sundial’s ledger rules to be
 included in a block, its effect is to remove the output at
 ``l2_outref`` from the block’s utxo set.
 
 Suppose the block containing the withdrawal event is confirmed. In that
-case, tokens from the Midgard reserve and confirmed deposits can be used
+case, tokens from the Sundial reserve and confirmed deposits can be used
 to pay for the creation of an L1 utxo at the address (``l1_address``) and with the
 inline datum (``l1_datum``) specified by the user, containing the value from the
 withdrawn L2 utxo. The L1 withdrawal request utxo must be spent in the

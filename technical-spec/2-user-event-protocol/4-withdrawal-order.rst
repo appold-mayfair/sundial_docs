@@ -1,7 +1,7 @@
 Withdrawal order (L1)
 =====================
 
-A user initiates a withdrawal from Midgard by submitting an L1
+A user initiates a withdrawal from Sundial by submitting an L1
 transaction that performs the following:
 
 1. Spend an input, which uniquely identifies this withdrawal order.
@@ -25,12 +25,12 @@ transaction that performs the following:
                   \end{array}
                   \right\}
 
-4. Send min-ADA to the Midgard withdrawal order address, along with the
+4. Send min-ADA to the Sundial withdrawal order address, along with the
    withdrawal order token and the above datum.
 
 At the time of the L1 withdrawal order, its inclusion time is set to the sum of the L1
-transaction’s validity interval upper bound and the Midgard protocol
-parameter. According to Midgard’s ledger rules:
+transaction’s validity interval upper bound and the Sundial protocol
+parameter. According to Sundial’s ledger rules:
 
 Withdrawal order inclusion.
    A block header must include withdrawal orders with inclusion times
@@ -40,7 +40,7 @@ Withdrawal order inclusion.
 The withdrawal order’s outcome is determined as follows:
 
 - If the withdrawal event is included in a settlement queue node, then
-  utxos from the Midgard reserve and confirmed deposits can be used to
+  utxos from the Sundial reserve and confirmed deposits can be used to
   pay for the creation of an L1 utxo according to the withdrawal event.
 
 - If the withdrawal order’s inclusion time is within the confirmed

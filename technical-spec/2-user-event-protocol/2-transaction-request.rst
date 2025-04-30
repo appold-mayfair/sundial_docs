@@ -1,14 +1,14 @@
 Transaction request (L2)
 ========================
 
-A user’s primary method of transacting on the Midgard ledger is to
+A user’s primary method of transacting on the Sundial ledger is to
 submit an L2 transaction directly to the current operator via a
 web-based API endpoint. Operators are expected to serve such APIs in a
 publicly accessible and employ sufficient security techniques to
 mitigate denial-of-service.
 
 Users’ L2 transactions follow the data structure defined in
-`[h:midgard-transaction-types] <#h:midgard-transaction-types>`__. In
+`[h:Sundial-transaction-types] <#h:Sundial-transaction-types>`__. In
 particular, users can freely set transaction time-validity intervals
 according to their preferences. As long as there is a non-empty overlap
 between a transaction’s time-validity interval and a block’s event
@@ -31,9 +31,9 @@ its outcomes.
 
 However, while on Cardano L1 two transactions with non-overlapping
 validity intervals cannot be included in the same block, the analogous
-L2 transactions *can* be included in a Midgard block if its event
+L2 transactions *can* be included in a Sundial block if its event
 interval overlaps each transaction. Thus, transaction validity intervals
-on Midgard define only the relation between transactions and blocks but
+on Sundial define only the relation between transactions and blocks but
 do not necessarily imply a temporal precedence relation between
 transactions.
 

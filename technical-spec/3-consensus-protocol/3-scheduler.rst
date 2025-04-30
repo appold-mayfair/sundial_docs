@@ -1,7 +1,7 @@
 Scheduler
 =========
 
-The Midgard scheduler is an L1 mechanism that indicates which operator
+The Sundial scheduler is an L1 mechanism that indicates which operator
 is assigned to the current shift and controls the transitions to the
 next shift and next operator. Whenever a shift ends, the next operator
 in key-descending order from the list has the exclusive privilege to
@@ -24,7 +24,7 @@ Utxo representation
 -------------------
 
 The scheduler state consists of a single utxo that holds the scheduler
-NFT, minted when Midgard is initialized and burned when Midgard is
+NFT, minted when Sundial is initialized and burned when Sundial is
 deinitialized via the hub oracle. That utxo’s datum type is as follows:
 
 .. math::
@@ -37,7 +37,7 @@ deinitialized via the hub oracle. That utxo’s datum type is as follows:
    \right\}
 
 The shift’s inclusive lower bound is ``shift_start``, and its exclusive upper bound is
-the sum of ``shift_start`` and the Midgard protocol parameter.
+the sum of ``shift_start`` and the Sundial protocol parameter.
 
 Minting policy
 --------------
@@ -46,16 +46,16 @@ The minting policy initializes and deinitializes the scheduler state. It
 is statically parametrized on the minting policy. Redeemers:
 
 Init.
-   Initialize the via the Midgard hub oracle. Conditions:
+   Initialize the via the Sundial hub oracle. Conditions:
 
-   #. The transaction must mint the Midgard hub oracle token.
+   #. The transaction must mint the Sundial hub oracle token.
 
    #. The transaction must mint the NFT.
 
 Deinit.
-   Deinitialize the via the Midgard hub oracle. Conditions:
+   Deinitialize the via the Sundial hub oracle. Conditions:
 
-   #. The transaction must burn the Midgard hub oracle token.
+   #. The transaction must burn the Sundial hub oracle token.
 
    #. The transaction must burn the NFT.
 

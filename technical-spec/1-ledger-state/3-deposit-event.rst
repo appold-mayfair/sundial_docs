@@ -8,8 +8,8 @@ A deposit set is a finite map from deposit IDs to deposit info:
    \texttt{DepositSet} := \texttt{Map(DepositId, DepositInfo)} \\
    := \left\{ (k_i: \texttt{DepositId}, v_i: \texttt{DepositInfo}) \;\middle|\; \forall i \ne j.\; k_i \ne k_j \right\}
 
-A deposit event in a Midgard block acknowledges that a user has created
-an L1 utxo at the Midgard L1 deposit address, intending to transfer that
+A deposit event in a Sundial block acknowledges that a user has created
+an L1 utxo at the Sundial L1 deposit address, intending to transfer that
 utxo’s tokens to the L2 ledger.
 
 .. math::
@@ -31,7 +31,7 @@ needed to find the L1 deposit utxo, ensure that deposit events are
 unique, and detect when an operator has fabricated a deposit event
 without the corresponding deposit utxo existing in the L1 ledger.
 
-Suppose a deposit event is permitted by Midgard’s ledger rules to be
+Suppose a deposit event is permitted by Sundial’s ledger rules to be
 included in a block. In that case, its effect is to add a new L2 utxo to
 the block’s utxo set containing the value from the L1 deposit utxo at
 the address (``l2_address``) and with the inline datum (``l2_datum``) specified by the user. The
@@ -50,5 +50,5 @@ In other words, the L2 ledger treats the new utxo as if it was created
 by a notional transaction with ``id`` equal to the hash of the deposit ID.
 
 If the block containing the deposit event is confirmed, the
-corresponding L1 deposit utxo may be absorbed into the Midgard reserves
+corresponding L1 deposit utxo may be absorbed into the Sundial reserves
 or used to pay for withdrawals. The deposit lifecycle is described in more detail elsewhere, including how the deposit event information is validated.

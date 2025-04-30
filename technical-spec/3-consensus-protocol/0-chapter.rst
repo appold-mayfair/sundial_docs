@@ -1,12 +1,12 @@
 Consensus protocol
 ==================
 
-This chapter describes Midgard’s L1 contract-based consensus protocol,
+This chapter describes Sundial’s L1 contract-based consensus protocol,
 which establishes the canonical chain of valid blocks. It consists of
 the following components:
 
 -  The operator directory is an onchain data structure that tracks
-   active, retired, and newly registered Midgard operators.
+   active, retired, and newly registered Sundial operators.
 
 -  The scheduler is an onchain mechanism that assigns evenly sized time
    windows to operators on a rotating schedule.
@@ -32,6 +32,6 @@ the following components:
    successfully concluded to verify a fraud proof about a block header
    in the state queue.
 
--  The Midgard hub oracle wires all the onchain components together by
+-  The Sundial hub oracle wires all the onchain components together by
    storing their minting policy IDs and spending validator addresses for
    easy reference.

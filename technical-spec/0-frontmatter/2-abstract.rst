@@ -11,7 +11,7 @@ Authors
 Abstract
 --------
 
-Midgard is the first optimistic rollup protocol on Cardano.  
+Sundial is the first optimistic rollup protocol on Cardano.  
 It offloads transaction processing from Layer 1 (L1) to Layer 2 (L2) while maintaining L1's security and decentralization properties.  
 As a result, it can handle a significantly higher volume of transactions without compromising on security.
 
@@ -22,7 +22,7 @@ This whitepaper outlines:
 - State transition mechanics
 - Dispute resolution mechanisms
 
-Midgard’s architecture represents a major advancement in the scalability and security of general-purpose L2s on Cardano.
+Sundial's architecture represents a major advancement in the scalability and security of general-purpose L2s on Cardano.
 
 **Economic Model:**
 
@@ -37,7 +37,7 @@ Midgard’s architecture represents a major advancement in the scalability and s
 - L2 block storage
 - Fraud proof validation
 
-Overall, Midgard aims to be a scalable, secure backbone for the Cardano ecosystem.
+Overall, Sundial aims to be a scalable, secure backbone for the Cardano ecosystem.
 
 Contributors
 ------------
